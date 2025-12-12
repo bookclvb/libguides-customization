@@ -1,5 +1,4 @@
-/* Header */
-
+/* CATALOG STYLES */
 
 :root {
     --color-gray: #F5F5F3;
@@ -120,11 +119,13 @@ h1{
 
 h2 {
     font-family: var(--font-secondary) ;
+    font-size: 30px ;
     font-weight: 100 ;
 }
 
 h3 {
     font-family: var(--font-secondary) ;
+    font-size: 24px;
     font-weight: 100 ;
 }
 
@@ -162,6 +163,8 @@ a:hover, a:focus, a:visited:hover {
     align-items: center;
     list-style: none;
     padding: 0;
+    margin: 0;
+    line-height: 0;
     gap: 1.5rem;
 }
 
@@ -169,6 +172,19 @@ a:hover, a:focus, a:visited:hover {
     padding: 10px;
 }
 
+.header p {
+    font-family: var(--font-secondary);
+    font-weight: 100;
+    font-size: 24px;
+}
+
+/* Lists */
+
+.nav-ul .logo {
+    padding: 2px 10px 2px 7px; /* assumes body margin is automatically 8px */
+}
+
+.nav-ul .logo img {
 /* Menus */
 
 
