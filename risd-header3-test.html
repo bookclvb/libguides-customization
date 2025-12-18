@@ -1,0 +1,358 @@
+<!--it works! transfered into LG-->
+
+<style>
+
+    :root {
+    --color-blue: #2454FF;
+    --color-white: #FFFFFF;
+    --color-black: #000;
+    --font-primary: 'RISD Sans', Arial, Helvetica, sans-serif;
+    }
+
+
+.header {
+    background-color: var(--color-white);
+    width: 100%;
+}
+
+.nav-ul {
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    gap: 2.5rem;
+    margin-bottom: 2px;
+}
+
+.nav-li {
+    float: none !important;
+    padding: 10px;
+}
+
+.nav-ul #lockup {
+    margin-right: auto !important; /* float links to right of lockup */
+}
+
+.nav-ul #lockup img {
+    max-height: 60px;
+    width: auto;
+}
+
+.nav-li a {
+    font-family: var(--font-primary);
+    color: var(--color-black);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.header li:hover,
+.header li:focus {
+    background: var(--color-blue);
+    text-decoration: none !important;
+}
+
+.nav-li:hover a  {
+    color: var(--color-white);
+    text-decoration: none !important;
+}
+
+#lockup:hover,
+#lockup:focus {
+    background: transparent;
+}
+
+.nav-ul #more-menu{
+    padding: 0px;
+    margin-right: 10px;
+}
+
+.nav-ul #more-menu .menu-ul.open,
+.nav-ul #more-menu:focus-within .menu-ul {
+    display: block;
+}
+
+.nav-ul #more-menu:hover svg  {
+    color: var(--color-white) !important;
+}
+
+
+/* Hide mobile menu */
+.nav-ul > #mobile-menu {
+    display: none;
+}
+
+.nav-ul #login-drop {
+    display: none;
+}
+
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+.desktop-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--color-blue);
+}
+
+.mobile-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--color-white);
+}
+
+/* Toggle menu */
+#menu-toggle, #mobile-toggle {
+    cursor: pointer;
+    padding: 10px 14px;
+    background: var(--color-white);
+    border: none;
+    margin: 0;
+}
+
+#menu-toggle:hover, #menu-toggle:focus,
+#mobile-toggle:hover, #mobile-toggle:focus {
+    background: var(--color-blue);
+    color: var(--color-white);
+}
+
+/* menu list hidden by default, visible when open */
+#menu-list, #mobile-menu-list {
+    list-style: none !important;
+    margin: 8px 0 0 0;
+    padding: 0;
+    background: var(--color-white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: absolute;
+    right: 0;
+    min-width: 220px;
+    z-index: 1000;
+    display: none;
+}
+
+#menu-list.open, #mobile-menu-list.open {
+    display: block;
+}
+
+#more-menu, #mobile-menu {
+    position: relative;
+}
+
+#menu-list, #mobile-menu-list {
+    left: auto;
+    right: 0;
+    max-width: calc(100vw - 32px);
+    box-sizing: border-box;
+}
+
+#more-menu .menu-ul li a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--color-black);
+    text-decoration: none;
+}
+
+#more-menu .menu-ul li a:hover {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+#more-menu details:not([open]) .menu-list {
+    display: none;
+}
+
+
+@media (max-width: 1199.98px){
+    .nav-ul > li {
+        display: none;
+    }
+    
+    .nav-ul > .no-hide {
+        display: list-item;
+    }
+    
+    .nav-ul > #mobile-menu {
+        display: list-item;
+        padding: 0;
+    }
+    
+    .nav-ul {
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    #mobile-menu details {
+        position: relative;
+    }
+    
+    #mobile-menu .mobile-menu-btn {
+        cursor: pointer;
+        padding: 10px 14px;
+        background: var(--color-blue);
+        color: var(--color-white);
+        border-radius: none;
+    }
+    
+    #mobile-menu-list ul,
+    #mobile-menu-list ul li {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }   
+    
+    #mobile-menu .mobile-menu-list li a {
+        display: block;
+        padding: 10px 16px;
+        color: var(--color-black);
+        text-decoration: none;
+    }
+    
+    #mobile-menu .mobile-menu-list li a:hover {
+        background-color: var(--color-blue);
+        color: var(--color-white);
+        text-decoration: none;
+    }
+    
+    /* Hide the menu on close */
+    #mobile-menu details:not([open]) .mobile-menu-list {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    .nav-ul #login-drop {
+        display: block;
+    }
+
+    .nav-ul #login-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .nav-ul #lockup img {
+        max-height: 36px;
+        width: auto;
+        height: auto;
+        display: block;
+    }
+}
+
+</style>
+
+  <div class="header">
+    <ul class="nav-ul">
+      <li class="nav-li no-hide" id="lockup"><a href="https://risd.libguides.com/homepage"><img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/128622/images/library-lockup-sm.png" alt="Fleet Library"></a></li>
+      <li class="nav-li"><a href="https://risd.libguides.com/collections-spaces">Collections & Spaces</a></li>
+      <li class="nav-li"><a href="https://risd.libguides.com/research-learning">Research & Learning</a></li>
+      <li class="nav-li no-hide" id="login-nav"><a href="https://librarycat.risd.edu/patroninfo">Login/Renew</a></li>
+      <li class="nav-li" id="more-menu"> 
+        <!--Dropdown menu-->
+        <button id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="menu-list" aria-haspopup="true">
+          <svg class="desktop-icon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="3" width="24" height="3" fill="currentColor" />
+            <rect y="11" width="24" height="3" fill="currentColor" />
+            <rect y="19" width="24" height="3" fill="currentColor" />
+          </svg>
+        </button>
+        <ul id="menu-list" class="menu-ul" hidden>
+          <li><a href="https://risd.libguides.com/access">Hours, Access & Borrowing</a></li>
+          <li><a href="https://risd.libguides.com/events-exhibits">Events & Exhibits</a></li>
+          <li><a href="https://risd.libguides.com/about">About</a></li>
+        </ul>
+      </li>
+      <!-- Mobile menu -->
+  <li class="nav-li" id="mobile-menu">
+        <button id="mobile-toggle" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu-list" aria-haspopup="true">
+          <svg class="mobile-icon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="3" width="24" height="3" fill="currentColor" />
+            <rect y="11" width="24" height="3" fill="currentColor" />
+            <rect y="19" width="24" height="3" fill="currentColor" />
+          </svg>
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <nav id="mobile-menu-list" class="mobile-menu-list" hidden>
+          <ul>
+            <li><a href="https://risd.libguides.com/collections-spaces">Collections & Spaces</a></li>
+            <li><a href="https://risd.libguides.com/research-learning">Research & Learning</a></li>
+            <li><a href="https://risd.libguides.com/access">Hours, Access & Borrowing</a></li>
+            <li><a href="https://risd.libguides.com/events-exhibits">Events & Exhibits</a></li>
+            <li><a href="https://risd.libguides.com/about">About</a></li>
+            <li id="login-drop"><a href="https://librarycat.risd.edu/patroninfo">Login/Renew</a></li>        
+          </ul>
+        </nav>
+      </li>
+    </ul>
+  </div>
+  
+  <script>
+
+// Header menu button toggle
+
+(function () {
+  function setupToggle(buttonId, menuId) {
+    const btn = document.getElementById(buttonId);
+    const menu = document.getElementById(menuId);
+    if (!btn || !menu) {
+      console.warn('setupToggle: missing element', { buttonId, menuId, btn, menu });
+      return;
+    }
+
+    function open() {
+      console.debug('open menu', menuId);
+      btn.setAttribute('aria-expanded', 'true');
+      menu.removeAttribute('hidden');
+      menu.classList.add('open');
+    }
+    function close() {
+      console.debug('close menu', menuId);
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('hidden', '');
+      menu.classList.remove('open');
+    }
+
+    btn.addEventListener('click', function (e) {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      if (expanded) close(); else open();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!menu.classList.contains('open')) return;
+      if (btn.contains(e.target) || menu.contains(e.target)) return;
+      close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        close();
+        btn.focus();
+      }
+    });
+  }
+
+  function init() {
+    setupToggle('menu-toggle', 'menu-list');
+    setupToggle('mobile-toggle', 'mobile-menu-list');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+
+  </script>
