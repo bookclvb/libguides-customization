@@ -124,6 +124,7 @@
     src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Incomplete_Variable.woff2') format("woff2");
 }
 
+
 h1{
     font-family: var(--font-secondary);
     font-weight: 100;
@@ -167,8 +168,7 @@ a:hover, a:focus, a:visited:hover {
     color: var(--black);
 }
 
-
-/*-----------------------------------------HEADER -----------------------------------------*/
+/*-----------------------------------------HEADER-----------------------------------------*/
 
 .header {
     background-color: var(--white);
@@ -222,7 +222,7 @@ a:hover, a:focus, a:visited:hover {
     background: transparent;
 }
 
-.nav-ul #more-menu{
+.nav-ul #more-menu, #mobile-menu {
     padding: 0px;
     margin-right: 10px;
 }
@@ -237,10 +237,15 @@ a:hover, a:focus, a:visited:hover {
 }
 
 
-/* Hide mobile menu */
+/* Hide mobile menu by default */
 .nav-ul > #mobile-menu {
     display: none;
 }
+
+.nav-ul #login-drop {
+    display: none;
+}
+
 
 .visually-hidden {
     position: absolute !important;
@@ -250,7 +255,7 @@ a:hover, a:focus, a:visited:hover {
     white-space: nowrap;
 }
 
-.desktop-icon {
+.desktop-icon, .mobile-icon {
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -258,15 +263,7 @@ a:hover, a:focus, a:visited:hover {
     color: var(--blue);
 }
 
-.mobile-icon {
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    vertical-align: middle;
-    color: var(--white);
-}
-
-/* Toggle desktop dropdown menu */
+/* Toggle menu */
 #menu-toggle, #mobile-toggle {
     cursor: pointer;
     padding: 10px 14px;
@@ -281,7 +278,7 @@ a:hover, a:focus, a:visited:hover {
     color: var(--white);
 }
 
-/* menu lists hidden by default, visible when open */
+/* menu list hidden by default, visible when open */
 #menu-list, #mobile-menu-list {
     list-style: none !important;
     margin: 8px 0 0 0;
@@ -299,12 +296,10 @@ a:hover, a:focus, a:visited:hover {
     display: block;
 }
 
-/* Position menus relative to their li container so right:0 aligns to the toggle */
 #more-menu, #mobile-menu {
     position: relative;
 }
 
-/* Prevent menus from overflowing the viewport on very small screens */
 #menu-list, #mobile-menu-list {
     left: auto;
     right: 0;
@@ -330,19 +325,18 @@ a:hover, a:focus, a:visited:hover {
 }
 
 
-@media screen and (max-width: 992px){
-    /* Hide all top-level nav items except the logo */
+@media (max-width: 1199.98px){
     .nav-ul > li {
         display: none;
     }
     
-    .nav-ul > #lockup {
+    .nav-ul > .no-hide {
         display: list-item;
     }
     
-    /* Show the mobile menu button */
     .nav-ul > #mobile-menu {
         display: list-item;
+        padding: 0;
     }
     
     .nav-ul {
@@ -356,10 +350,6 @@ a:hover, a:focus, a:visited:hover {
     
     #mobile-menu .mobile-menu-btn {
         cursor: pointer;
-        padding: 10px 14px;
-        background: var(--blue);
-        color: var(--white);
-        border-radius: none;
     }
     
     #mobile-menu-list ul,
@@ -388,7 +378,18 @@ a:hover, a:focus, a:visited:hover {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 767.98px) {
+
+    .nav-ul #login-drop {
+        display: block;
+    }
+
+    .nav-ul #login-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 575.98px) {
     .nav-ul #lockup img {
         max-height: 36px;
         width: auto;
@@ -396,6 +397,7 @@ a:hover, a:focus, a:visited:hover {
         display: block;
     }
 }
+
 
 /*------------------------------------------------FOOTER-----------------------------------------*/
 

@@ -1,110 +1,222 @@
+
+<link rel="stylesheet" href="https://static-assets-us.libguides.com/web/css3.22.2/lg-public.min.css">
+<link rel="stylesheet" type="text/css" href="https://d2jv02qf7xgjwx.cloudfront.net/sites/815/include/risd-libguides.css">
+<link rel="stylesheet" type="text/css" href="/risd-homepage.css">
+<script type="text/javascript" src="https://d2jv02qf7xgjwx.cloudfront.net/sites/815/include/risd-scripts.js"></script>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<!-- last updated 1/7/26, with advanced search features-->
+
+
 <body>
   <!-- BEGIN: Page Header -->
   {{public_header}}
   <!-- END: Page Header -->
+  
+  <div class="alert-ribbon">
+    <p><em>Welcome to our new website! Feel free to <a href="https://forms.gle/Yj2oqbfBd969ymkT6" target="_blank">share feedback</a> or ask questions.</em></p>
+  </div>
+  
   <div class="homepage-blue-box">
     <div class="container">
       <div class="row">
         <div class="col-md-7">
-          <div class="search-tabs"> <!--Tabbed search box-->
+          <div class="search-tabs">
             <h1 class="search-title">Search the Collections</h1>
             <div class="tab-buttons">
               <button class="tab-btn active" data-tab="catalog">Library Catalog</button>
               <button class="tab-btn" data-tab="discovery">Fleet Search</button>
               <button class="tab-btn" data-tab="digitalcommons">Digital Commons</button>
             </div>
+            <!-- Begin Catalog Search -->
             <div class="tab-content active" id="catalog">
-              <form action="https://librarycat.risd.edu/search/X?" method="get" target="_blank">
-                <input type="text" id="catalog-input" name="SEARCH" placeholder="Search RISD + Athenaeum collections">
-                <button type="submit" aria-label="Search">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
+              <form action="https://librarycat.risd.edu/search/" method="get" target="_blank">
+                <div class="search-box">
+                  <input type="text" id="catalog-input" name="searcharg" placeholder="Search RISD + Athenaeum collections">
+                  <input name="searchscope" type="hidden" value="4" /> <!-- scope for entire collection -->
+                  <button type="submit" aria-label="Search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div> 
+                  <fieldset class="search-radio" onchange="document.forms[0].searcharg.focus();">
+                    <label>
+                      <input checked="checked" id="keyword" name="searchtype" type="radio" value="X" />
+                      <span>Keyword</span>
+                    </label> 
+                    <label>
+                      <input id="title" name="searchtype" type="radio" value="t" />
+                      <span>Title</span>
+                    </label>
+                    <label>
+                      <input id="author" name="searchtype" type="radio" value="a" />
+                      <span>Author</span>
+                    </label> 
+                    <label><input id="subject" name="searchtype" type="radio" value="d" />
+                      <span>Subject</span>
+                    </label>
+                    <label>
+                      <input id="call" name="searchtype" type="radio" value="c" />
+                      <span>Call Number</span>
+                    </label>
+                  </fieldset>
+                </div>
               </form>
               <div id="search-info" class="search-info">
                 Searches physical collections at both RISD and the Providence Athenaeum: books, journals, DVDs, and more (plus RISD eBooks).
               </div>
             </div>
+            <!-- Begin Fleet Search -->
             <div class="tab-content" id="discovery">
-              <form action="https://0-research-ebsco-com.librarycat.risd.edu/c/ing2w3/search/results?" method="get" target="_blank">
-                <input type="text" id="discovery-input" name="q" placeholder="Search almost everything">
-                <button type="submit" aria-label="Search">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
+              <form action="https://0-research-ebsco-com.librarycat.risd.edu/c/ing2w3/search/results" method="get" target="_blank">
+                <div class="search-box">
+                  <input type="text" id="discovery-input" name="q" placeholder="Search almost everything">
+                  <button type="submit" aria-label="Search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="search-radio" aria-label="Limiters">
+                  <!--label for="FT1">
+                    <input type="checkbox" id="FT1" name="limiters" value="FT1:Y" />
+                    <span>Available now</span>
+                  </label>-->
+                  <label for="FT">
+                    <input type="checkbox" id="FT" name="limiters" value="FT:Y" />
+                    <span>Full text</span>
+                  </label>
+                  <label for="RV" class="float-after">
+                    <input type="checkbox" id="RV" name="limiters" value="RV:Y" />
+                    <span>Peer reviewed</span>
+                  </label>
+                  <a href="https://research.ebsco.com/c/ing2w3/search/advanced/filters" target="_blank" rel="noopener noreferrer">Advanced search</a>
+                </div>
               </form>
               <div id="search-info" class="search-info">
                 Fleet Search brings together sources from many places at once: article databases, streaming films, eBooks, the library catalog, plus materials that can be requested through Interlibrary Loan.
               </div>
             </div>
+            <!-- Begin DC Search -->
             <div class="tab-content" id="digitalcommons">
-                <form action="https://digitalcommons.risd.edu/do/search/" method="GET" target="_blank">
+              <form action="https://digitalcommons.risd.edu/do/search/" method="GET" target="_blank">
+                <div class="search-box">
                   <input type="text" id="dc-input" name="q" placeholder="Search the institutional repository">
                   <button type="submit" aria-label="Search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                   </button>
-                </form>
-                <div id="search-info" class="search-info">
-                  Digital Commons is RISD's institutional repository - where we host our own materials: digital thesis books, digitized materials from RISD Archives and Special Collections, and much more.
                 </div>
+              </form>
+              <div id="search-info" class="search-info">
+                Digital Commons is RISD's institutional repository - where we host our own materials: digital thesis books, digitized materials from RISD Archives and Special Collections, and much more.
               </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-4" id="gallery-widget" style="float: right;">
-            <script  src="//lgapi-us.libapps.com/web/js/sa.min.js?3116"></script>
-            <script>springshare_widget_config_1764625989576 = { path: 'boxes/35319574', link_text: 'Content Box' };</script><div id="s-lg-widget-1764625989576"></div><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Featured+Images&widget_height=410&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35319574&map_id=41568190&content_only=0&include_jquery=0&config_id=1764625989576";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","s-lg-widget-script-1764625989576");</script>
+        <div class="col-md-4"> <!-- featured image -->
+          <div class="featured-image">
+            <script>springshare_widget_config_1765999944151 = { path: 'boxes/35396914', link_text: 'Content Box' };</script><div id="s-lg-widget-1765999944151"></div>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Featured+image&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35396914&map_id=41657653&content_only=0&include_jquery=0&config_id=1765999944151";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","s-lg-widget-script-1765999944151");</script>              
+          </div>
+          <div class="featured-link">
+            <script>springshare_widget_config_1765999969208 = { path: 'boxes/35396931', link_text: 'Content Box' };</script><div id="s-lg-widget-1765999969208"></div><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Featured+Link&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35396931&map_id=41657671&content_only=0&include_jquery=0&config_id=1765999969208";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","s-lg-widget-script-1765999969208");</script>
+          </div>
         </div>
       </div>
     </div>
   </div>
-      <div class="container">
-        <div class="row">
-          <!-- Begin Hours -->
-          <div class="col-md-6">
-            <h2 class="h2-homepage">Today's Hours</h2>
-            <div class="homepage-gray-box" id="libcal-widget">
-              <script src="https://risd.libcal.com/js/hours_today.js"></script>
-              <div id="s_lc_tdh_618_0"></div>
-              <script>
-                $(function () {
-                  var s_lc_tdh_618_0 = new $.LibCalTodayHours($("#s_lc_tdh_618_0"), { iid: 618, lid: 0 });
-                });
-              </script>
-            </div>
-          </div><!--end hours-->
-          <!-- Begin explore boxes -->
-          <div class="col-md">
-            <h2 class="h2-homepage">Explore</h2>
-            <div class="layout-2x2">
-              <div class="homepage-gray-box">
-                <a href="https://risd.libguides.com/contest">New Books</a>
-                <p>Browse items recently added to the library's circulating collections</p>
-              </div>
-              <div class="homepage-gray-box">
-                <a href="https://risd.libguides.com/faculty">Resources for Faculty</a>
-                <p>Whether you're seasoned or brand new, you'll find something here</p>
-              </div>
-              <div class="homepage-gray-box">
-                <a href="https://risd.libguides.com/az.php">Databases A-Z</a>
-                <p>Our full list of databases and online resources, searchable by title, topic, and format</p>
-              </div>
-              <div class="homepage-gray-box">
-                <a href="https://risd.libguides.com/thesesbydepartment">Graduate Theses</a>
-                <p>Explore digital and physical master's theses from RISD graduates</p>
-              </div>
-              <div class="homepage-gray-box">
-                <a href="https://risd.libguides.com/exhibits">Current Exhibits</a>
-                <p>See what's on display at the library</p>
-              </div>
-              <div class="homepage-gray-box">
-                <a href="https://risd.libguides.com/events-exhibits/unbound">Unbound</a>
-                <p>UNBOUND Art Book Fair is coming in April</p>
-              </div>
-            </div>
+  
+  <div class="container">
+    <div class="row">
+      <!-- Begin Hours -->
+      <div class="col-md-6">
+        <h2 class="h2-homepage">Today's Hours</h2>
+        <div class="homepage-gray-box" id="libcal-widget">
+          <script src="https://risd.libcal.com/js/hours_today.js"></script>
+          <div id="s_lc_tdh_618_0"></div>
+          <script>
+            $(function () {
+              var s_lc_tdh_618_0 = new $.LibCalTodayHours($("#s_lc_tdh_618_0"), { iid: 618, lid: 0 });
+            });
+          </script>
+        </div>
+        <h2 class="h2-homepage">Search this Site</h2>
+        <div class="homepage-gray-box" id="site-search">
+          <script>springshare_widget_config_1766095033279 = {  link_text: 'Search Box' };</script>
+          <div id="s-lg-widget-1766095033279"></div>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=7&widget_embed_type=1&output_format=1&search_box_type=1&group_id=32556&placeholder_text=Search+for+info+about+the+library&button_text=Search&widget_height=&widget_width=&config_id=1766095033279";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","s-lg-widget-script-1766095033279");</script>
+        </div>
+      </div><!--end col-md-6-->
+      <!-- Begin explore boxes (editable in 'Homepage Widgets' guide) -->
+      <div class="col-md">
+        <h2 class="h2-homepage">Explore</h2>
+        <div class="layout-2x4">
+          <div class="homepage-gray-box">
+            <script>springshare_widget_config_1766007230136 = { path: 'boxes/35399218', link_text: 'Content Box' };</script>
+            <div id="s-lg-widget-1766007230136"></div>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Box+1&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35399218&map_id=41660353&content_only=0&include_jquery=0&config_id=1766007230136"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "s-lg-widget-script-1766007230136");</script>
+          </div>
+          <div class="homepage-gray-box">
+            <script>springshare_widget_config_1766007362357 = { path: 'boxes/35399219', link_text: 'Content Box' };</script>
+            <div id="s-lg-widget-1766007362357"></div>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Box+2&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35399219&map_id=41660354&content_only=0&include_jquery=0&config_id=1766007362357"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "s-lg-widget-script-1766007362357");</script>
+          </div>
+          <div class="homepage-gray-box">
+            <script>springshare_widget_config_1766007387564 = { path: 'boxes/35399220', link_text: 'Content Box' };</script>
+            <div id="s-lg-widget-1766007387564"></div>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Box+3&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35399220&map_id=41660355&content_only=0&include_jquery=0&config_id=1766007387564"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "s-lg-widget-script-1766007387564");</script>
+          </div>
+          <div class="homepage-gray-box">
+            <script>springshare_widget_config_1766007395783 = { path: 'boxes/35399222', link_text: 'Content Box' };</script>
+            <div id="s-lg-widget-1766007395783"></div>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Box+4&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35399222&map_id=41660357&content_only=0&include_jquery=0&config_id=1766007395783"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "s-lg-widget-script-1766007395783");</script>
+          </div>
+          <div class="homepage-gray-box">
+            <script>springshare_widget_config_1766007407533 = { path: 'boxes/35399223', link_text: 'Content Box' };</script>
+            <div id="s-lg-widget-1766007407533"></div>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Box+5&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35399223&map_id=41660358&content_only=0&include_jquery=0&config_id=1766007407533"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "s-lg-widget-script-1766007407533");</script>
+          </div>
+          <div class="homepage-gray-box">
+            <script>springshare_widget_config_1766007416397 = { path: 'boxes/35399224', link_text: 'Content Box' };</script>
+            <div id="s-lg-widget-1766007416397"></div>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Box+6&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35399224&map_id=41660359&content_only=0&include_jquery=0&config_id=1766007416397"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "s-lg-widget-script-1766007416397");</script>
+          </div>
+          <div class="homepage-gray-box">
+            <script>springshare_widget_config_1766007424480 = { path: 'boxes/35399226', link_text: 'Content Box' };</script>
+            <div id="s-lg-widget-1766007424480"></div>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Box+7&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35399226&map_id=41660361&content_only=0&include_jquery=0&config_id=1766007424480"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "s-lg-widget-script-1766007424480");</script>
+          </div>
+          <div class="homepage-gray-box">
+            <script>springshare_widget_config_1766007433276 = { path: 'boxes/35399228', link_text: 'Content Box' };</script>
+            <div id="s-lg-widget-1766007433276"></div>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://lgapi-us.libapps.com/widgets.php?site_id=815&widget_type=8&output_format=1&widget_title=Box+8&widget_height=250&widget_width=100%25&widget_embed_type=1&guide_id=1504735&box_id=35399228&map_id=41660363&content_only=0&include_jquery=0&config_id=1766007433276"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "s-lg-widget-script-1766007433276");</script>
           </div>
         </div>
-      </div>     
-      <!-- BEGIN: Custom Footer -->
-      {{public_footer}}
-      <!-- END: Custom Footer -->       
-    </body>
+      </div>
+    </div>
+  </div>     
+  <!-- BEGIN: Custom Footer -->
+  {{public_footer}}
+  <!-- END: Custom Footer -->       
+  <script>
+    // Overwrite ALL GUIDES in title bar
     
+    const myTitle = "Fleet Library at RISD";
+    document.title = myTitle;
     
+    const observer = new MutationObserver(function(mutations) {
+      if (document.title !== myTitle) {
+        document.title = myTitle;
+      }
+    });
+    
+    const titleElement = document.querySelector('title');
+    if (titleElement) {
+      observer.observe(titleElement, {
+        childList: true,
+        characterData: true,
+        subtree: true
+      });
+    }
+  </script>
+</body>

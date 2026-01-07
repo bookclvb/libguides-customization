@@ -2,11 +2,11 @@
 
 
 :root {
-    --color-gray: #F5F5F3;
-    --color-dark-gray: #b6b6b6;
-    --color-blue: #2454FF;
-    --color-white: #FFFFFF;
-    --color-black: #000;
+    --gray: #F5F5F3;
+    --dark-gray: #b6b6b6;
+    --blue: #2454FF;
+    --white: #FFFFFF;
+    --black: #000;
     
     --font-primary: 'RISD Sans', Arial, Helvetica, sans-serif;
     --font-secondary: 'RISD Serif Complete', serif;
@@ -142,12 +142,12 @@ body {
 
 a, a:visited {
     font-family: inherit;
-    color: var(--color-blue);
+    color: var(--blue);
     text-decoration: none;
 }
 
 a:hover, a:focus, a:visited:hover {
-    color: var(--color-blue);
+    color: var(--blue);
     text-decoration: underline;
 }
 
@@ -195,7 +195,7 @@ a:hover, a:focus, a:visited:hover {
 
 .header a {
     font-family: var(--font-primary);
-    color: var(--color-black);
+    color: var(--black);
     text-decoration: none;
     font-size: 16px;
 }
@@ -207,16 +207,16 @@ a:hover, a:focus, a:visited:hover {
 
 .header a:hover,
 .header a:focus {
-    background: var(--color-blue);
+    background: var(--blue);
     text-decoration: none;
 }
 
 .nav-li:hover a  {
-    color: var(--color-white);
+    color: var(--white);
 }
 
 .nav-ul #more-menu:hover svg  {
-    color: var(--color-white) !important;
+    color: var(--white) !important;
 }
 
 /* remove blue hover from logos */
@@ -233,13 +233,13 @@ a:hover, a:focus, a:visited:hover {
 #more-menu .menu-ul li a {
     display: block;
     padding: 10px 16px;
-    color: var(--color-black);
+    color: var(--black);
     text-decoration: none;
 }
 
 #more-menu .menu-ul li a:hover {
-    background-color: var(--color-blue);
-    color: var(--color-white);
+    background-color: var(--blue);
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -262,7 +262,7 @@ a:hover, a:focus, a:visited:hover {
     height: 24px;
     display: inline-block;
     vertical-align: middle;
-    color: var(--color-blue);
+    color: var(--blue);
 }
 
 .mobile-icon {
@@ -270,21 +270,21 @@ a:hover, a:focus, a:visited:hover {
     height: 24px;
     display: inline-block;
     vertical-align: middle;
-    color: var(--color-white);
+    color: var(--white);
 }
 
 /* Desktop dropdown menu */
 #menu-toggle, #mobile-toggle {
     cursor: pointer;
     padding: 10px 14px;
-    background: var(--color-white);
+    background: var(--white);
     border: none;
 }
 
 #menu-toggle:hover, #menu-toggle:focus,
 #mobile-toggle:hover, #mobile-toggle:focus {
-    background: var(--color-blue);
-    color: var(--color-white);
+    background: var(--blue);
+    color: var(--white);
 }
 
 /* menu lists hidden by default, visible when open */
@@ -292,7 +292,7 @@ a:hover, a:focus, a:visited:hover {
     list-style: none;
     margin: 8px 0 0 0;
     padding: 0;
-    background: var(--color-white);
+    background: var(--white);
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     position: absolute;
     right: 0;
@@ -309,7 +309,7 @@ a:hover, a:focus, a:visited:hover {
 #more-menu .menu-ul li a {
     display: block;
     padding: 10px 16px;
-    color: var(--color-black);
+    color: var(--black);
     text-decoration: none;
 /* Position menus relative to their li container so right:0 aligns to the toggle 
 #more-menu, #mobile-menu {
@@ -317,8 +317,8 @@ a:hover, a:focus, a:visited:hover {
 }
 
 #more-menu .menu-ul li a:hover {
-    background-color: var(--color-blue);
-    color: var(--color-white);
+    background-color: var(--blue);
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -366,8 +366,8 @@ a:hover, a:focus, a:visited:hover {
     #mobile-menu .mobile-menu-btn {
         cursor: pointer;
         padding: 10px 14px;
-        background: var(--color-blue);
-        color: var(--color-white);
+        background: var(--blue);
+        color: var(--white);
         border-radius: 0;
     }
     
@@ -381,13 +381,13 @@ a:hover, a:focus, a:visited:hover {
     #mobile-menu .mobile-menu-list li a {
         display: block;
         padding: 10px 16px;
-        color: var(--color-black);
+        color: var(--black);
         text-decoration: none;
     }
     
     #mobile-menu .mobile-menu-list li a:hover {
-        background-color: var(--color-blue);
-        color: var(--color-white);
+        background-color: var(--blue);
+        color: var(--white);
         text-decoration: none;
     }
     

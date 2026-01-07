@@ -2,13 +2,12 @@
 
 :root {
     --banner-color: #2454FF; /* change the big box behind search widget & featured image */
-    --alert-color: #edff67; /* change color of alert ribbon (still to be coded in) */
 }
 
 /*---------------------------------HOMEPAGE----------------------------------*/
 
 h1.search-title {
-    color: var(--color-white);
+    color: var(--white);
     font-size: 80px;
     font-family: var(--font-accent);
     font-weight: 100;
@@ -30,7 +29,7 @@ body {
 /* Boxes */
 
 .homepage-gray-box {
-    background-color: var(--color-gray);
+    background-color: var(--gray);
     padding: 15px 30px;
 }
 
@@ -61,24 +60,24 @@ body {
 }
 
 .homepage-gray-box a {
-    color: var(--color-black);
+    color: var(--black);
     font-size: 16px;
 }
 
 .homepage-gray-box p {
-    color: var(--color-black);
+    color: var(--black);
     font-size: 14px;
 }
 
 .homepage-gray-box a:hover {
-    color: var(--color-blue);
+    color: var(--blue);
     text-decoration: none;
 }
 
 .layout-2x4 a {
     display: inline-block;
     padding-bottom: 2px;
-    border-bottom: 2px solid var(--color-blue);
+    border-bottom: 2px solid var(--blue);
     margin-bottom: 10px;
 }
 
@@ -92,10 +91,10 @@ body {
 button.s-lc-w-btn, .s-lc-w-today-view-all a {
     justify-content: space-between;
     padding: 8px 24px;;
-    border: 2px solid var(--color-blue);
+    border: 2px solid var(--blue);
     border-radius: 0;
     background-color: transparent;
-    color: var(--color-blue);
+    color: var(--blue);
     text-transform: uppercase;
     text-decoration: none;
     transition-property: color, background-color;
@@ -119,13 +118,13 @@ button.s-lc-w-btn, .s-lc-w-today-view-all a {
     user-select: none;
     border: 1px solid #ccc;
     color: #333;
-    background-color: var(--color-white);
+    background-color: var(--white);
 }
 
 button.s-lc-w-btn:hover, .s-lc-w-today-view-all a:hover {
-    background-color: var(--color-blue);
-    border-color: var(--color-blue);
-    color: var(--color-white);
+    background-color: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
 }
 
 .s-lc-w-today-view-all {
@@ -165,7 +164,7 @@ span.s-lc-w-head-pre,
 }
 
 tr.s-lc-w-times {
-    border-bottom: 2px solid var(--color-black);
+    border-bottom: 2px solid var(--black);
     display: flex;
     gap: 10px;
     justify-content: space-between;
@@ -242,7 +241,7 @@ tr.s-lc-w-times.s-lc-w-location {
 }
 
 
-/* tabbed search box */
+/* tabbed triple SEARCH THE COLLECTIONS box */
 
 
 .search-tabs {
@@ -261,16 +260,16 @@ tr.s-lc-w-times.s-lc-w-location {
     padding: 0.5rem;
     cursor: pointer;
     font-size: 1.5rem;
-    background-color: var(--color-blue);
-    border: 2px solid var(--color-white);
+    background-color: var(--blue);
+    border: 2px solid var(--white);
     border-radius: 0;
-    color: var(--color-white);
+    color: var(--white);
 }
 
 .tab-btn.active {
-    background-color: var(--color-white);
-    border: 2px solid var(--color-white);
-    color: var(--color-blue);
+    background-color: var(--white);
+    border: 2px solid var(--white);
+    color: var(--blue);
 }
 
 .search-tabs .tab-content {
@@ -281,19 +280,33 @@ tr.s-lc-w-times.s-lc-w-location {
     display: block;
 }
 
-.search-tabs .tab-content form {
+div.search-box {
+    background-color: var(--white);
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    background-color: var(--color-white);
-    
+    margin-bottom: 10px;
+}
+div .search-radio {
+    color: var(--white);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-radio label {
+    font-weight: normal;
+    font-size: 14px;
+    margin: 0px 15px 0px 0px;
+}
+
+.search-radio input {
+    accent-color: var(--pink);
+    transform: scale(1.2);
 }
 
 .search-tabs .tab-content input[type="text"] {
     flex: 1;
     border: 0;
     font-family: var(--font-secondary);
-    color: var(--color-blue);
+    color: var(--blue);
     font-size: 20px;
     font-weight: 100;
     padding: 10px 20px;
@@ -302,8 +315,8 @@ tr.s-lc-w-times.s-lc-w-location {
 .search-tabs .tab-content button[type="submit"] {
     cursor: pointer;
     padding: 10px 15px;
-    background: var(--color-blue);
-    color: var(--color-white);
+    background: var(--blue);
+    color: var(--white);
     border: none;
     margin: 4px;
     border-radius: 0;
@@ -314,39 +327,28 @@ tr.s-lc-w-times.s-lc-w-location {
     font-size: 20px;
 }
 
+.search-radio .float-after {
+    margin-right: auto;
+}
+
+.search-radio>a {
+    color: var(--lime);
+    text-decoration: underline;
+}
+
+#discovery-input .search-radio input {
+    margin-right: 3px;
+}
+
 .search-info {
     font-size: 14px;
-    padding: 0.75rem 1rem;
-    min-height: 2.2em;
-    color: var(--color-white);
-}
-
-/* --------------------- gray box search --------------------- */
-
-#site-search input.s-lg-form-control {
-    border-radius: 0;
-    box-shadow: none;
-    width: 100%;
-    height: 45px;
     padding: 10px;
-    font-size: 16px;
-}
-
-#site-search button,
-#site-search .btn {
-    color: var(--color-blue);
-    padding: 8px 20px;
-}
-
-#site-search form {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.s-lg-widget-search {
-    width: 100% !important;
+    margin-top: 10px;
+    min-height: 2.2em;
+    color: var(--white);
+    /* for after banner comes down
+        color: var(--black);
+    background-color: var(--lime); */
 }
 
 @media (max-width: 992px) {
@@ -357,6 +359,11 @@ tr.s-lc-w-times.s-lc-w-location {
     .homepage-blue-box .col-md-4 {
         float: none;
         justify-items: center;
+    }
+
+    .col-md {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
@@ -399,45 +406,16 @@ tr.s-lc-w-times.s-lc-w-location {
 }
 
 .alert-ribbon {
-    background-color: #def766;
-    margin-top: -30px;
-    padding: 20px 20px 10px 20px;
+    background-color: var(--lime);
+    margin-top: 5px;
+    margin-bottom: -10px;
+    padding: 5px;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     font-family: var(--font-primary);
 }
 
-
-/*----------GALLERY WIDGET FOR HOMEPAGE (work in progress) ----------*/
-
-#s-lg-widget-1764625989576 .s-lib-box {
-    background-color: transparent !important;
-    border: none;
-    box-shadow: none;
-}
-
-#s-lg-widget-1764625989576 .s-lib-box-title,
-#s-lg-widget-1764625989576 .s-lib-cpane-caption,
-#s-lg-widget-1764625989576 .slick_play_pause,
-#s-lg-widget-1764625989576 .slick-arrow {
-    display: none !important;
-}
-
-#s-lg-widget-1764625989576 .s-lib-box-content {
-    padding: 0;
-}
-
-#s-lg-widget-1764625989576 .slick-dots li button:before {
-    color: #FFFFFF;
-    opacity: 1;
-    font-size: 12px;
-}
-
-#s-lg-widget-1764625989576 .slick-dots li.slick-active button:before {
-    color: #000000;
-}
-
-/* ---------------- featured image widget (new, working) -------------- */
+/* ---------------- featured image widget (pulling from LG) -------------- */
 
 .featured-image h2.s-lib-box-title,
 .featured-link h2.s-lib-box-title {
@@ -463,17 +441,17 @@ tr.s-lc-w-times.s-lc-w-location {
 }
 
 .featured-link p {
-    color: var(--color-white);
+    color: var(--white);
 }
 
 .featured-link a {
-    color: var(--color-white);
+    color: var(--white);
     border-bottom: 2px solid;
     padding-bottom: 2px;
 }
 
 .featured-link a:hover {
-    color: var(--color-dark-gray);
+    color: var(--dark-gray);
     text-decoration: none;
 }
 
@@ -482,7 +460,7 @@ tr.s-lc-w-times.s-lc-w-location {
     margin-left: 5px;
 }
 
-/* ------------------- boxes pulling from LG ----------------------*/
+/* ------------------- gray Explore boxes pulling from LG ----------------------*/
 
 .homepage-gray-box .s-lib-box {
     margin-bottom: 0;
@@ -497,10 +475,43 @@ tr.s-lc-w-times.s-lc-w-location {
     padding: 0;
 }
 
+/* --------------------- gray box search --------------------- */
+
+div#site-search {
+    padding: 30px 20px;
+}
+
+#site-search input.s-lg-form-control {
+    border-radius: 0;
+    border: 2px solid var(--blue);
+    box-shadow: none;
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    font-size: 16px;
+}
 
 
+#site-search .btn {
+    color: var(--white);
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+    padding: 8px 20px;
+}
 
-/*---------------------------------STYLE OVERRIDES FOR WEBSITE GROUP----------------------------------*/
+#site-search form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.s-lg-widget-search {
+    width: 100% !important;
+}
+
+
+/*---------------------------------STYLE OVERRIDES FOR WEBSITE GROUP GUIDES----------------------------------*/
 
 
 #s-lib-bc,
@@ -510,12 +521,12 @@ tr.s-lc-w-times.s-lc-w-location {
 }
 
 h1#s-lg-guide-name {
-    color: var(--color-blue) !important;
+    color: var(--blue) !important;
 }
 
 /* OVERRIDE TAB & BOX SETTINGS */
 h2.s-lib-box-title {
-    color: var(--color-black);
+    color: var(--black);
     font-size: 26px !important;
     font-family: var(--font-secondary) !important;
     text-transform: revert !important;
@@ -525,6 +536,6 @@ h2.s-lib-box-title {
 
 .s-lib-box, .s-lib-box-title {
     border: none !important;
-    background-color: var(--color-white) !important;
+    background-color: var(--white) !important;
     box-shadow: none !important;
 }

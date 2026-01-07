@@ -1,18 +1,19 @@
 /************** System-Wide Styles **********/
 
 :root {
-    --color-gray: #F5F5F3;
-    --color-mid-gray: #e0e0DD;
-    --color-dark-gray: #b6b6b6;
-    --color-blue: #2454FF;
-    --color-white: #FFFFFF;
-    --color-black: #000;
-    --color-near-black: #444444;
-    --color-green: #00A95C;
-    --color-purple: #BE53F7;
-    --color-orange: #FF6C2F;
-    --color-gold: #B97000;
-    --color-pink: #E44C9A;
+    --gray: #F5F5F3;
+    --mid-gray: #e0e0DD;
+    --dark-gray: #b6b6b6;
+    --blue: #2454FF;
+    --white: #FFFFFF;
+    --black: #000;
+    --near-black: #444444;
+    --green: #00A95C;
+    --purple: #BE53F7;
+    --orange: #FF6C2F;
+    --gold: #B97000;
+    --pink: #E44C9A;
+    --lime: #def766;
     
     
     
@@ -20,14 +21,14 @@
     
     --tab-color: #F5F5F3;
     --tab-borders: #c1c1c1;
-    --tab-active: var(--color-blue);
-    --subtab-border: var(--color-dark-gray);
+    --tab-active: var(--blue);
+    --subtab-border: var(--dark-gray);
     --subtab-text: black;;
-    --box-heading: var(--color-black);
-    --link: var(--color-blue);
+    --box-heading: var(--black);
+    --link: var(--blue);
     --link-hover: black;
     --guide-title: black;
-    --body-text: var(--color-near-black);
+    --body-text: var(--near-black);
     
     --font-primary: 'RISD Sans', Arial, Helvetica, sans-serif;
     --font-secondary: 'RISD Serif Complete', serif;
@@ -163,25 +164,25 @@ body {
 
 a, a:visited {
     font-family: inherit;
-    color: var(--color-blue);
+    color: var(--blue);
     text-decoration: none;
 }
 
 a:hover, a:focus, a:visited:hover {
-    color: var(--color-blue);
+    color: var(--blue);
     text-decoration: underline;
 }
 
 .nav .fa-external-link {
     font-size: 12px !important;
-    color: var(--color-black);
+    color: var(--black);
 }
 
 
 /*-----------------------------------------HEADER-----------------------------------------*/
 
 .header {
-    background-color: var(--color-white);
+    background-color: var(--white);
     width: 100%;
 }
 
@@ -211,19 +212,19 @@ a:hover, a:focus, a:visited:hover {
 
 .nav-li a {
     font-family: var(--font-primary);
-    color: var(--color-black);
+    color: var(--black);
     text-decoration: none;
     font-size: 16px;
 }
 
 .header li:hover,
 .header li:focus {
-    background: var(--color-blue);
+    background: var(--blue);
     text-decoration: none !important;
 }
 
 .nav-li:hover a  {
-    color: var(--color-white);
+    color: var(--white);
     text-decoration: none !important;
 }
 
@@ -232,7 +233,7 @@ a:hover, a:focus, a:visited:hover {
     background: transparent;
 }
 
-.nav-ul #more-menu{
+.nav-ul #more-menu, #mobile-menu {
     padding: 0px;
     margin-right: 10px;
 }
@@ -242,12 +243,14 @@ a:hover, a:focus, a:visited:hover {
     display: block;
 }
 
-.nav-ul #more-menu:hover svg  {
-    color: var(--color-white) !important;
+.nav-ul #more-menu:hover svg,
+.nav-ul #more-menu .menu-ul.open svg,
+.nav-ul #more-menu:focus-within svg {
+    color: var(--white) !important;
 }
 
 
-/* Hide mobile menu */
+/* Hide mobile menu by default */
 .nav-ul > #mobile-menu {
     display: none;
 }
@@ -265,35 +268,27 @@ a:hover, a:focus, a:visited:hover {
     white-space: nowrap;
 }
 
-.desktop-icon {
+.desktop-icon, .mobile-icon {
     width: 24px;
     height: 24px;
     display: inline-block;
     vertical-align: middle;
-    color: var(--color-blue);
-}
-
-.mobile-icon {
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    vertical-align: middle;
-    color: var(--color-white);
+    color: var(--blue);
 }
 
 /* Toggle menu */
 #menu-toggle, #mobile-toggle {
     cursor: pointer;
     padding: 10px 14px;
-    background: var(--color-white);
+    background: var(--white);
     border: none;
     margin: 0;
 }
 
 #menu-toggle:hover, #menu-toggle:focus,
 #mobile-toggle:hover, #mobile-toggle:focus {
-    background: var(--color-blue);
-    color: var(--color-white);
+    background: var(--blue);
+    color: var(--white);
 }
 
 /* menu list hidden by default, visible when open */
@@ -301,7 +296,7 @@ a:hover, a:focus, a:visited:hover {
     list-style: none !important;
     margin: 8px 0 0 0;
     padding: 0;
-    background: var(--color-white);
+    background: var(--white);
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     position: absolute;
     right: 0;
@@ -328,13 +323,13 @@ a:hover, a:focus, a:visited:hover {
 #more-menu .menu-ul li a {
     display: block;
     padding: 10px 16px;
-    color: var(--color-black);
+    color: var(--black);
     text-decoration: none;
 }
 
 #more-menu .menu-ul li a:hover {
-    background-color: var(--color-blue);
-    color: var(--color-white);
+    background-color: var(--blue);
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -368,10 +363,6 @@ a:hover, a:focus, a:visited:hover {
     
     #mobile-menu .mobile-menu-btn {
         cursor: pointer;
-        padding: 10px 14px;
-        background: var(--color-blue);
-        color: var(--color-white);
-        border-radius: none;
     }
     
     #mobile-menu-list ul,
@@ -384,13 +375,13 @@ a:hover, a:focus, a:visited:hover {
     #mobile-menu .mobile-menu-list li a {
         display: block;
         padding: 10px 16px;
-        color: var(--color-black);
+        color: var(--black);
         text-decoration: none;
     }
     
     #mobile-menu .mobile-menu-list li a:hover {
-        background-color: var(--color-blue);
-        color: var(--color-white);
+        background-color: var(--blue);
+        color: var(--white);
         text-decoration: none;
     }
     
@@ -425,25 +416,25 @@ a:hover, a:focus, a:visited:hover {
 
 .footer-risd {
     padding: 40px;
-    background-color: var(--color-black);
+    background-color: var(--black);
     max-width: 100% !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
 
 .footer-risd, .footer-risd a {
-    color: var(--color-white);
+    color: var(--white);
     font-family: var(--font-primary);
     font-size: 14px;
 }
 
 .footer-risd a {
-    text-decoration: underline var(--color-white);
+    text-decoration: underline var(--white);
     text-underline-offset: 2px;
 }
 
 .footer-risd a:hover {
-    color: var(--color-white);
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -480,19 +471,21 @@ footer ul {
 }
 
 #footer-search input.s-lg-form-control {
-    width: 160px; /* this is also set in widget embed script*/
+    width: 100%;
+    height: 36px;
     border-radius: 0;
     box-shadow: none;
     padding: 0px 0px 0px 10px;
-
+    border: 0px;
+    border-right: 2px solid var(--black) !important;
 }
 
 #footer-search button {
-    color: #ffffff !important;
-    background-color: var(--color-purple);
+    color: var(--black);
+    background-color: var(--lime) !important;
     border: none;
     border-radius: 0;
-    padding: 0px 10px;
+    padding: 0px 15px;
 }
 
 
@@ -500,7 +493,7 @@ footer ul {
 /* lg footer */
 #s-lib-footer-public {
     margin-top: 15px;
-    background-color: var(--color-gray);
+    background-color: var(--gray);
     border-top: 0;
 }
 
@@ -582,7 +575,7 @@ h1#s-lib-public-header-title {
 }
 
 .s-lib-public-side-header h2 {
-    color: var(--color-black);
+    color: var(--black);
     font-size: 20px;
 }
 
@@ -596,7 +589,7 @@ h1#s-lib-public-header-title {
 }
 
 .s-lg-tabs-side .s-lg-subtab-ul > li > a {
-    border-left: 2px solid var(--color-black) !important;
+    border-left: 2px solid var(--black) !important;
 }
 
 .s-lg-subtab-ul,
@@ -608,7 +601,7 @@ h1#s-lib-public-header-title {
 /* modify look of box-level side navigation */
 .s-lg-tabs-side .s-lg-boxnav .list-group-item {
     border-radius: 0;
-    background-color: var(--color-white);
+    background-color: var(--white);
     border-color: var(--subtab-border);
 }
 
@@ -626,8 +619,8 @@ h1#s-lib-public-header-title {
 /* tabbed box */
 
 .s-lib-box-content .nav-tabs>li {
-    border: 1px solid var(--color-dark-gray);
-    background-color: var(--color-gray);
+    border: 1px solid var(--dark-gray);
+    background-color: var(--gray);
     margin: 2px 5px 0px 0px;
     border-bottom: none;
 }
@@ -640,21 +633,14 @@ h1#s-lib-public-header-title {
 /* Box headers */
 
 h2.s-lib-box-title {
-    background-color: var(--color-white) !important;
+    background-color: var(--white) !important;
+    background-image: none;
     text-transform: uppercase !important;
-    border-bottom: 2px solid var(--color-black) !important;
+    border-bottom: 2px solid var(--black) !important;
     letter-spacing: .5px;
     font-size: 20px !important;
     font-family: var(--font-primary) !important;
 }
-
-/* Gradient box underline
-.s-lib-box .s-lib-box-title {
-border-bottom: 5px solid;
-border-radius: 0;
-border-image-slice: 1;
-border-image-source: linear-gradient(to left, #fff, #00a95c);
-} */
 
 /* Guide search */
 
@@ -665,14 +651,14 @@ border-image-source: linear-gradient(to left, #fff, #00a95c);
 }
 
 input#s-lg-guide-search-terms {
-    border-bottom: 1px solid var(--color-black);
+    border-bottom: 1px solid var(--black);
     outline: 0;
     padding-left: 10px;
 }
 
 .input-group-btn button.btn {
-    background-color: var(--color-blue);
-    color: var(--color-white);
+    background-color: var(--blue);
+    color: var(--white);
     border-radius: 0 !important;
     border: 0;
     margin-left: 16px !important;
@@ -698,7 +684,7 @@ input#s-lg-guide-search-terms {
     border: 1px solid var(--tab-borders);
 }
 #s-lg-guide-tabs .nav-pills>li>a {
-    border-left: 2px solid var(--color-black);
+    border-left: 2px solid var(--black);
 }
 
 .nav-tabs>li>a {
@@ -706,7 +692,7 @@ input#s-lg-guide-search-terms {
 }
 
 #s-lg-er-content .nav-tabs li a {
-    color: var(--color-blue);
+    color: var(--blue);
 }
 
 a.s-lg-tab-top-link.pull-left {
@@ -727,11 +713,11 @@ a.s-lg-tab-top-link.pull-left {
 }
 
 .s-ui-helptip {
-    color: var(--color-black);
+    color: var(--black);
 }
 
 .panel-heading > a {
-    color: var(--color-black);
+    color: var(--black);
 }
 
 #s-lg-guide-description {
@@ -766,7 +752,7 @@ li.s-lg-er-item>a {
 /* adjustments to tab dropdown menu */
 
 #s-lg-tabs-container .nav .dropdown-toggle .caret {
-    border-top-color: var(--color-black);
+    border-top-color: var(--black);
     padding-bottom: 5px;
 }
 
@@ -787,11 +773,15 @@ li.s-lg-er-item>a {
 .s-lg-tab-drop:hover > .caret,
 .s-lg-tab-drop:focus > .caret,
 li.active > .s-lg-tab-drop > .caret {
-    border-top-color: var(--color-white) !important;
+    border-top-color: var(--white) !important;
 }
 
 
 /*--BUTTONS--*/
+
+.risd-btn {
+    box-shadow: -2px 2px var(--blue);
+}
 
 .btn,
 button,
@@ -800,15 +790,20 @@ a.button,
 .s-lib-profile-email .label-info {
     cursor: pointer;
     border-radius: 0;
-    border: 2px solid var(--color-blue);
+    border: 2px solid var(--blue);
     background-color: transparent;
-    color: var(--color-blue);
+    background-image: none;
+    color: var(--blue);
     font-weight: 100;
     text-decoration: none;
     transition-property: color, transparent;
     transition-duration: .25s;
     transition-timing-function: ease-out;
    /* margin: 5px 5px 0px 0px; */
+}
+
+.btn-primary {
+    background-color: transparent !important;
 }
 
 .widget-button {
@@ -822,15 +817,19 @@ border: transparent !important;
 a.button:active, button:active,
 a.button:focus, button:focus,
 a.button:hover, button:hover,
-.btn-info.active,
+.btn-info:active,
 .btn-info:focus,
 .btn-info:hover,
 .btn:active, .btn:hover, .btn:focus,
 .s-lib-profile-email .label-info:focus,
-.s-lib-profile-email .label-info:hover {
-    color: var(--color-white);
-    background-color: var(--color-blue);
-    border-color: var(--color-blue);
+.s-lib-profile-email .label-info:hover,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+    color: var(--white);
+    background-color: var(--blue) !important;
+    border-color: var(--blue);
+    background-image: none;
 }
 
 /* all guides index page */
@@ -839,14 +838,14 @@ a.button:hover, button:hover,
 .nav-pills>li.active>button:focus,
 .nav-pills>li.active>button:hover {
     color: #fff;
-    background-color: var(--color-blue);
+    background-color: var(--blue);
     text-decoration: none;
     border-radius: 0;
 }
 
 .nav .s-lg-index-nav-btn>button,
 #s-lg-az-index .btn-link {
-    color: var(--color-blue);
+    color: var(--blue);
 }
 
 .nav .s-lg-index-nav-btn>button:hover {
