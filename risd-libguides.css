@@ -493,9 +493,17 @@ footer ul {
 /* lg footer */
 #s-lib-footer-public {
     margin-top: 15px;
-    background-color: var(--gray);
     border-top: 0;
+    width: 100% !important;
 }
+
+#s-lib-footer-support-link,
+#s-lg-guide-header-subjects,
+#s-lg-guide-header-tags {
+    display: none !important;
+}
+
+
 
 @media (max-width: 767px) {
     .footer-risd .footerlinks {
