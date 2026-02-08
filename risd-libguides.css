@@ -79,6 +79,14 @@
 
 @font-face {
     font-family: "RISD Serif Complete";
+    font-style: bold;
+    font-weight: 700;
+    font-display: fallback;
+    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete_Variable.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "RISD Serif Complete";
     font-style: italic;
     src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete-Light_Italic.woff2') format("woff2");
 }
@@ -499,7 +507,8 @@ footer ul {
 
 #s-lib-footer-support-link,
 #s-lg-guide-header-subjects,
-#s-lg-guide-header-tags {
+#s-lg-guide-header-tags,
+span.pad-left-med.hitst {
     display: none !important;
 }
 
@@ -648,6 +657,16 @@ h2.s-lib-box-title {
     letter-spacing: .5px;
     font-size: 20px !important;
     font-family: var(--font-primary) !important;
+}
+
+/* box headers on weird pages like Subject landing */
+#s-lg-sb-cols .h2 {
+    color: var(--black) !important;
+    background-color: var(--white) !important;
+    background-image: none !important;
+    border-bottom: 2px solid var(--black) !important;
+    font-size: 20px !important;
+    font-family: var(--font-secondary) !important;
 }
 
 /* Guide search */

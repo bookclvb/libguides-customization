@@ -7,17 +7,14 @@
 
 
 
-<!-- last updated 1/7/26, with advanced search features-->
+<!-- last updated 1/20/26, with search reset-->
 
 
 <body>
   <!-- BEGIN: Page Header -->
   {{public_header}}
   <!-- END: Page Header -->
-  
-  <div class="alert-ribbon">
-    <p><em>Welcome to our new website! Feel free to <a href="https://forms.gle/Yj2oqbfBd969ymkT6" target="_blank">share feedback</a> or ask questions.</em></p>
-  </div>
+
   
   <div class="homepage-blue-box">
     <div class="container">
@@ -36,6 +33,9 @@
                 <div class="search-box">
                   <input type="text" id="catalog-input" name="searcharg" placeholder="Search RISD + Athenaeum collections">
                   <input name="searchscope" type="hidden" value="4" /> <!-- scope for entire collection -->
+                  <button type="button" class="search-reset" aria-label="Clear search" onclick="this.closest('form').reset()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </button>
                   <button type="submit" aria-label="Search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                   </button>
@@ -73,6 +73,9 @@
               <form action="https://0-research-ebsco-com.librarycat.risd.edu/c/ing2w3/search/results" method="get" target="_blank">
                 <div class="search-box">
                   <input type="text" id="discovery-input" name="q" placeholder="Search almost everything">
+                  <button type="button" class="search-reset" aria-label="Clear search" onclick="this.closest('form').reset()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </button>
                   <button type="submit" aria-label="Search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                   </button>
@@ -102,6 +105,9 @@
               <form action="https://digitalcommons.risd.edu/do/search/" method="GET" target="_blank">
                 <div class="search-box">
                   <input type="text" id="dc-input" name="q" placeholder="Search the institutional repository">
+                  <button type="button" class="search-reset" aria-label="Clear search" onclick="this.closest('form').reset()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </button>
                   <button type="submit" aria-label="Search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                   </button>
@@ -194,7 +200,10 @@
         </div>
       </div>
     </div>
-  </div>     
+  </div>  
+  <div class="alert-ribbon">
+    <p><em>We welcome your <a href="https://forms.gle/Yj2oqbfBd969ymkT6" target="_blank">feedback</a> on our new website.</em></p>
+  </div>   
   <!-- BEGIN: Custom Footer -->
   {{public_footer}}
   <!-- END: Custom Footer -->       

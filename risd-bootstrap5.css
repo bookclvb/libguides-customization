@@ -13,15 +13,16 @@
     --orange: #FF6C2F;
     --gold: #B97000;
     --pink: #E44C9A;
+    --lime: #def766;
     --font-primary: 'RISD Sans', Arial, Helvetica, sans-serif;
     --font-secondary: 'RISD Serif Complete', serif;
     --font-accent: 'RISD Serif SemiComplete', 'Georgia', serif;
     
     
-    /* override bs/lg roots */
-    --bs-link-color: #2454FF;
-    --bs-link-hover-color: #000000;
-    --bs-component-hover-color: #2454FF;
+    /* override bs/lg roots, not sure if this works */
+    --bs-link-color: var(--blue);
+    --bs-link-hover-color: var(--black);
+    --bs-component-hover-color: var(--blue);
 }
 
 /* Typography */
@@ -37,6 +38,7 @@
 
 @font-face {
     font-family: "RISD Sans";
+    font-style: bold;
     font-weight: 700;
     font-display: fallback;
     src: url('//www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Sans-Bold.woff') format("woff");
@@ -60,8 +62,8 @@
 
 @font-face {
     font-family: "RISD Serif Complete";
-    font-style: normal;
-    font-weight: 400;
+    font-style: bold;
+    font-weight: 700;
     font-display: fallback;
     src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete_Variable.woff2') format("woff2");
 }
@@ -72,58 +74,9 @@
     src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete-Light_Italic.woff2') format("woff2");
 }
 
-@font-face {
-    font-family: "RISD Serif SemiComplete";
-    font-style: normal;
-    font-weight: 100;
-    font-display: fallback;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format("woff2");
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Light.woff2') format("woff2");
+body {
+    font-family: var(--font-primary);
 }
-
-@font-face {
-    font-family: "RISD Serif SemiComplete";
-    font-style: normal;
-    font-weight: 300;
-    font-display: fallback;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format("woff2");
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Light.woff2') format("woff2");
-}
-
-@font-face {
-    font-family: "RISD Serif Semicomplete";
-    font-style: normal;
-    font-weight: 400;
-    font-display: fallback;
-    src: url(http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Semibold.woff2) format("woff2");
-    src: url(http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Variable.woff2) format("woff2");
-}
-
-@font-face {
-    font-family: "RISD Serif Semicomplete";
-    font-style: normal;
-    font-weight: bold;
-    font-display: fallback;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Bold.woff2') format("woff2");
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format("woff2");
-}
-
-@font-face {
-    font-family: "RISD Serif Semicomplete";
-    font-style: italic;
-    font-display: fallback;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Italic_Variable.woff2') format("woff2");
-}
-
-@font-face {
-    font-family: "RISD Serif Incomplete";
-    font-style: normal;
-    font-weight: 100;
-    font-display: fallback;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Incomplete-Light.woff2') format("woff2");
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Incomplete_Variable.woff2') format("woff2");
-}
-
 
 h1{
     font-family: var(--font-secondary);
@@ -144,12 +97,7 @@ h3 {
 h4, h5, h6 {
     font-family: var(--font-primary) !important;
     font-weight: 700;
-}
-
-body {
-    font-family: var(--font-primary) !important;
-    font-size: 14px;
-    padding: 0px !important;
+    text-transform: uppercase;
 }
 
 a, a:visited {
