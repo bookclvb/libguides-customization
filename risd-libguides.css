@@ -19,7 +19,7 @@
     
     /* changes to major guide colors can be made here */
     
-    --tab-color: #F5F5F3;
+    --tab-color: var(--gray);
     --tab-borders: #c1c1c1;
     --tab-active: var(--blue);
     --subtab-border: var(--dark-gray);
@@ -591,9 +591,28 @@ h1#s-lib-public-header-title {
     border: none !important;
 }
 
-.s-lib-public-side-header h2 {
+.s-lib-public-side-header h2,
+#s-lg-sb-cols h2.s-lib-box-header {
     color: var(--black);
     font-size: 20px;
+    font-family: var(--font-secondary) !important;
+    text-transform: unset !important;
+    background-image: none;
+    border-bottom: 2px solid var(--black);
+    padding: 0 0 0 5px;
+}
+
+/* prettify sidebar search */
+.input-append form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-append input.form-control {
+border-radius: 0px;
+margin-top: 2px;
 }
 
 /* modify sub-Pages side nav tabs */
@@ -657,16 +676,6 @@ h2.s-lib-box-title {
     letter-spacing: .5px;
     font-size: 20px !important;
     font-family: var(--font-primary) !important;
-}
-
-/* box headers on weird pages like Subject landing */
-#s-lg-sb-cols .h2 {
-    color: var(--black) !important;
-    background-color: var(--white) !important;
-    background-image: none !important;
-    border-bottom: 2px solid var(--black) !important;
-    font-size: 20px !important;
-    font-family: var(--font-secondary) !important;
 }
 
 /* Guide search */
