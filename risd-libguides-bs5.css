@@ -17,6 +17,19 @@
     --font-primary: 'RISD Sans', Arial, Helvetica, sans-serif;
     --font-secondary: 'RISD Serif Complete', serif;
     --font-accent: 'RISD Serif SemiComplete', 'Georgia', serif;
+
+ /* changes to major guide colors can be made here */
+    
+    --tab-color: var(--gray);
+    --tab-borders: #c1c1c1;
+    --tab-active: var(--blue);
+    --subtab-border: var(--dark-gray);
+    --subtab-text: black;;
+    --box-heading: var(--black);
+    --link: var(--blue);
+    --link-hover: black;
+    --guide-title: black;
+    --body-text: var(--near-black);
     
     
     /* override bs/lg roots, not sure if this works */
@@ -32,8 +45,8 @@
     font-style: normal;
     font-weight: 100;
     font-display: fallback;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Sans_Variable.woff2') format("woff2-variations");
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Sans-Regular.woff2') format("woff2");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Sans_Variable.woff2') format("woff2-variations");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Sans-Regular.woff2') format("woff2");
 }
 
 @font-face {
@@ -41,14 +54,14 @@
     font-style: bold;
     font-weight: 700;
     font-display: fallback;
-    src: url('//www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Sans-Bold.woff') format("woff");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Sans-Bold.woff') format("woff");
 }
 
 @font-face {
     font-family: "RISD Sans";
     font-style: italic;
     font-display: fallback;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Sans-Regular_Italic.woff2') format("woff2");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Sans-Regular_Italic.woff2') format("woff2");
 }
 
 @font-face {
@@ -56,8 +69,16 @@
     font-style: normal;
     font-weight: 100;
     font-display: fallback;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete_Variable.woff2') format("woff2-variations");
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete-Light.woff2') format("woff2");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete_Variable.woff2') format("woff2-variations");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete-Light.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "RISD Serif Complete";
+    font-style: normal;
+    font-weight: 400;
+    font-display: fallback;
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete_Variable.woff2') format("woff2");
 }
 
 @font-face {
@@ -65,17 +86,45 @@
     font-style: bold;
     font-weight: 700;
     font-display: fallback;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete_Variable.woff2') format("woff2");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete_Variable.woff2') format("woff2");
 }
 
 @font-face {
     font-family: "RISD Serif Complete";
     font-style: italic;
-    src: url('http://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete-Light_Italic.woff2') format("woff2");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Complete-Light_Italic.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "RISD Serif SemiComplete";
+    font-style: normal;
+    font-weight: 100;
+    font-display: fallback;
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format("woff2");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Light.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "RISD Serif Semicomplete";
+    font-style: normal;
+    font-weight: 400;
+    font-display: fallback;
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Semibold.woff2') format("woff2");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "RISD Serif Semicomplete";
+    font-style: normal;
+    font-weight: bold;
+    font-display: fallback;
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Bold.woff2') format("woff2");
+    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format("woff2");
 }
 
 body {
     font-family: var(--font-primary);
+    font-size: 14px;
 }
 
 h1{
@@ -115,6 +164,21 @@ a:hover, a:focus, a:visited:hover {
     font-size: 12px !important;
     color: var(--black);
 }
+
+/* un-bold various defaults */
+#s-lib-bc li, /* breadcrumbs */
+#s-lg-guide-tabs .nav-pills > li > a,
+#s-lg-guide-tabs .nav-tabs > li > a,
+.bold {
+    font-weight: 400 !important;
+}
+
+#s-lg-admin-command-bar {
+   font-size: 12px; /* admin nav bar back to normal size in editor mode */
+}
+
+
+
 
 /*-----------------------------------------HEADER-----------------------------------------*/
 
@@ -426,8 +490,15 @@ footer ul {
 /* lg footer */
 #s-lib-footer-public {
     margin-top: 15px;
-    background-color: var(--gray);
     border-top: 0;
+    width: 100% !important;
+}
+
+#s-lib-footer-support-link,
+#s-lg-guide-header-subjects,
+#s-lg-guide-header-tags,
+span.pad-left-med.hitst {
+    display: none !important;
 }
 
 @media (max-width: 767px) {
@@ -530,4 +601,110 @@ h2#s-lg-az-result-count {
     border-radius: 2px;
     background-color:#ffeef7;
     padding: 20px;
+}
+
+/*----------------- General LG tweaks ------------------*/
+
+
+/* Guide headers */
+
+.s-lib-header h1#s-lg-guide-name,
+h1#s-lib-public-header-title {
+    font-family: var(--font-secondary);
+    font-weight: 100;
+    font-size: 28px;
+    color: var(--guide-title);
+    padding: 0;
+}
+
+/* Boxes */
+
+h2.s-lib-box-title {
+    background-color: var(--white) !important;
+    background-image: none;
+    font-family: var(--font-primary) !important;    
+    text-transform: uppercase !important;
+    font-size: 18px !important;
+    border-bottom: 2px solid var(--black) !important;
+}
+
+.s-lib-box { 
+    box-shadow: none;
+    border: none !important;
+}
+
+/* modify look of box-level side navigation */
+.s-lg-tabs-side .s-lg-boxnav .list-group-item {
+    border-radius: 0;
+    background-color: var(--white);
+    border-color: var(--subtab-border);
+}
+
+.s-lg-tabs-side .s-lg-boxnav .list-group-item:hover,
+.s-lg-tabs-side .s-lg-boxnav .list-group-item:focus {
+    background-color: var(--tab-color);
+}
+
+.s-lg-tabs-side .s-lg-boxnav .list-group-item a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* modify sub-Pages side nav tabs */
+.s-lg-tabs-side .s-lg-subtab-ul {
+    margin-left: 20px;
+}
+
+.s-lg-tabs-side .s-lg-subtab-ul > li {
+    margin-right: 0 !important;
+}
+
+.s-lg-tabs-side .s-lg-subtab-ul > li > a {
+    border-left: 2px solid var(--black) !important;
+}
+
+.s-lg-subtab-ul,
+.nav-stacked>li+li {
+    margin-top: 6px !important;
+}
+
+/* tabbed box */
+
+.s-lib-box-content .nav-tabs>li {
+    border: 1px solid var(--dark-gray);
+    background-color: var(--gray);
+    margin: 2px 5px 0px 0px;
+    border-bottom: none;
+}
+
+.s-lib-box-content .nav-tabs>li>a{
+    border-radius: 0px;
+}
+
+/* Guide search box */
+
+#s-lg-guide-search-form input {
+    box-shadow: none;
+    border: 0;
+    border-radius: 0;
+}
+
+input#s-lg-guide-search-terms {
+    border-bottom: 1px solid var(--black);
+    outline: 0;
+    padding-left: 10px;
+}
+
+.input-group-btn button.btn {
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 0 !important;
+    border: 0;
+    margin-left: 16px !important;
+}
+
+/* ensure floating boxes have padding */
+.s-lib-floating-box {
+    padding: 10px;
 }
