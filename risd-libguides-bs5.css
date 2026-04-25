@@ -104,27 +104,10 @@
     src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Light.woff2') format("woff2");
 }
 
-@font-face {
-    font-family: "RISD Serif Semicomplete";
-    font-style: normal;
-    font-weight: 400;
-    font-display: fallback;
-    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Semibold.woff2') format("woff2");
-    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format("woff2");
-}
-
-@font-face {
-    font-family: "RISD Serif Semicomplete";
-    font-style: normal;
-    font-weight: bold;
-    font-display: fallback;
-    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Bold.woff2') format("woff2");
-    src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format("woff2");
-}
-
 body {
     font-family: var(--font-primary);
     font-size: 14px;
+    padding: 0px;
 }
 
 h1{
@@ -149,7 +132,8 @@ h4, h5, h6 {
     text-transform: uppercase;
 }
 
-a, a:visited {
+a, a:visited,
+#s-lib-footer-login-link a {
     font-family: inherit;
     color: var(--blue);
     text-decoration: none;
@@ -486,21 +470,6 @@ footer ul {
 }
 
 
-
-/* lg footer */
-#s-lib-footer-public {
-    margin-top: 15px;
-    border-top: 0;
-    width: 100% !important;
-}
-
-#s-lib-footer-support-link,
-#s-lg-guide-header-subjects,
-#s-lg-guide-header-tags,
-span.pad-left-med.hitst {
-    display: none !important;
-}
-
 @media (max-width: 767px) {
     .footer-risd .footerlinks {
         flex-direction: column;
@@ -520,7 +489,21 @@ span.pad-left-med.hitst {
     }
 }
 
-/*----------------------- New A-Z page tweaks -----------------------*/
+/* lg footer */
+#s-lib-footer-public {
+    margin-top: 15px;
+    border-top: 0;
+    width: 100% !important;
+}
+
+#s-lib-footer-support-link,
+#s-lg-guide-header-subjects,
+#s-lg-guide-header-tags,
+span.pad-left-med.hitst {
+    display: none !important;
+}
+
+/*----------------------- A-Z page tweaks -----------------------*/
 
 #s-lg-az-index button {
     color: var(--near-black);
@@ -545,10 +528,6 @@ span.pad-left-med.hitst {
 
 #s-lg-az-filter-cols div.row {
     padding: 5px 
-}
-
-.az-public-mobile-filters input /* .form-control */ {
-    border-radius: 0;
 }
 
 /* modify mobile filters on a-z menu, may affect more, tbd */
@@ -577,33 +556,11 @@ a.az-title {
     margin-left: 15px;
 }
 
-.sidebar-boxes > div > .accordion-item {
-    border-radius: 0 !important;
-}
-
-#s-lg-az-popular .accordion-item,
-#s-lg-az-trials h2.accordion-header > button {
-    background-color: var(--gray);
-}
-
-#s-lg-az-trials .accordion-item,
-#s-lg-az-trials h2.accordion-header > button {
-    background-color: #edffea;
-}
-
 h2#s-lg-az-result-count {
     font-family: var(--font-primary) !important;
     font-size: 14px;
 }
 
-#best-bets-box {
-    border-color: var(--pink);
-    border-radius: 2px;
-    background-color:#ffeef7;
-    padding: 20px;
-}
-
-/*----------------- General LG tweaks ------------------*/
 
 
 /* Guide headers */
@@ -633,7 +590,7 @@ h2.s-lib-box-title {
     border: none !important;
 }
 
-/* modify look of box-level side navigation */
+/* modify look of box-level side tabs */
 .s-lg-tabs-side .s-lg-boxnav .list-group-item {
     border-radius: 0;
     background-color: var(--white);
@@ -682,12 +639,57 @@ h2.s-lib-box-title {
     border-radius: 0px;
 }
 
+/* Make E-Reserves titles bold */
+li.s-lg-er-item>a {
+    font-family: var(--font-primary);
+    font-weight: 700;
+}
+
+/* TAB adjustments */
+
+/* tab spacing for top-nav only */
+#s-lg-guide-tabs .nav-tabs>li {
+    margin: 0px 6px 6px 0px;
+}
+
+/* tab borders */
+#s-lg-guide-tabs .nav-tabs>li>a,
+#s-lg-guide-tabs .nav-pills>li>a {
+    border: 1px solid var(--tab-borders);
+}
+#s-lg-guide-tabs .nav-pills>li>a {
+    border-left: 2px solid var(--black);
+}
+
+.s-lg-subtab-ul li {
+    font-size: 14px;
+}
+
+/* adjustments to tab dropdown menu */
+
+#s-lg-tabs-container .nav .dropdown-toggle .caret {
+    border-top-color: var(--black);
+    padding-bottom: 5px;
+}
+
+#s-lg-tabs-container .nav .dropdown-toggle .caret:hover,
+#s-lg-tabs-container .nav .dropdown-toggle .caret:focus {
+    padding-bottom: 5px;
+}
+
+.s-lg-tab-drop:hover > .caret,
+.s-lg-tab-drop:focus > .caret,
+li.active > .s-lg-tab-drop > .caret {
+    border-top-color: var(--white) !important;
+}
+
+
+
 /* Guide search box */
 
 #s-lg-guide-search-form input {
     box-shadow: none;
     border: 0;
-    border-radius: 0;
 }
 
 input#s-lg-guide-search-terms {
@@ -696,15 +698,85 @@ input#s-lg-guide-search-terms {
     padding-left: 10px;
 }
 
-.input-group-btn button.btn {
-    background-color: var(--blue);
-    color: var(--white);
-    border-radius: 0 !important;
-    border: 0;
-    margin-left: 16px !important;
-}
-
-/* ensure floating boxes have padding */
+/* ensure floating boxes have padding
 .s-lib-floating-box {
     padding: 10px;
+}  */
+
+/* square forms/inputs*/
+
+input, 
+.accordion,
+.accordion-item,
+.form-control,
+.form-select {
+    border-radius: 0 !important;
+}
+
+/* ALL BUTTONS */
+
+.btn, button {
+    border-radius: 0 !important;
+    text-decoration: none !important;
+    background-image: none !important;
+}
+
+/* BOX SHADOW BUTTONS */
+
+.risd-btn {
+    box-shadow: -2px 2px var(--blue);
+}
+
+/* TRANSPARENT BUTTONS */
+
+.s-lg-index-nav-btn button {
+    border: 2px solid var(--black) !important;
+    color: var(--black) !important;
+    background: transparent;
+}
+
+/* BLUE BUTTONS */
+.btn-light {
+    color: var(--white) !important;
+    background-color: var(--blue) !important;
+    border: 2px solid var(--blue);
+}
+
+/* BLACK BUTTONS */
+.btn-info,
+.s-lg-index-nav-btn.active button,
+.s-lg-index-nav-btn button:hover,
+.s-lg-index-nav-btn button:focus {
+    color: var(--white) !important;
+    background-color: var(--black) !important;
+    border: 2px solid var(--black);
+}
+
+
+
+
+/* search widgets (impacts custom search boxes across guides)*/
+div.search-widget {
+    width: 100%;
+    display: flex;
+}
+.widget-input {
+    flex: 1 1 0%;
+    margin-right: 5px;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+fieldset.catalog-radio {
+    margin: 5px 0px;
+}
+
+.catalog-radio label{
+    margin-right: 1em;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.catalog-radio input {
+    margin: 0px 4px 0px 0px;
 }
