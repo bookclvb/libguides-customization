@@ -1,6 +1,7 @@
-/************** System-Wide Styles **********/
+/* RISD System-Wide bs5.3.5 customizations */
 
-:root {
+:root{
+
     --gray: #F5F5F3;
     --mid-gray: #e0e0DD;
     --dark-gray: #b6b6b6;
@@ -15,30 +16,37 @@
     --pink: #E44C9A;
     --lime: #def766;
     --font-primary: 'RISD Sans', Arial, Helvetica, sans-serif;
-    --font-secondary: 'RISD Serif Complete', serif;
+    --font-secondary: 'RISD Serif Complete', 'Georgia', serif;
     --font-accent: 'RISD Serif SemiComplete', 'Georgia', serif;
 
- /* changes to major guide colors can be made here */
-    
     --tab-color: var(--gray);
-    --tab-borders: #c1c1c1;
-    --tab-active: var(--blue);
+    --tab-active: var(--black);
+    --tab-hover: var(--blue);
+    --tab-borders: var(--mid-gray);
     --subtab-border: var(--dark-gray);
-    --subtab-text: black;;
-    --box-heading: var(--black);
-    --link: var(--blue);
-    --link-hover: black;
-    --guide-title: black;
-    --body-text: var(--near-black);
-    
-    
-    /* override bs/lg roots, not sure if this works */
-    --bs-link-color: var(--blue);
-    --bs-link-hover-color: var(--black);
-    --bs-component-hover-color: var(--blue);
-}
+    --subtab-text: var(--black);
+    --box-border: transparent;
+    --box-background: transparent;
 
-/* Typography */
+    /* springshare bs5 root overrides */
+
+    --bs-font-sans-serif: var(--font-primary);
+    --bs-font-monospace: "Liberation Mono","Courier New",monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: var(--near-black);
+    --bs-border-width: 1px;
+    --bs-border-color: #dee2e6;
+    --bs-border-radius: 0;
+    --bs-link-color: var(--blue);
+    --bs-link-hover-color: var(--blue);
+    --bs-highlight-bg: var(--lime);
+    --bs-component-hover-color: var(--blue);
+
+}
 
 @font-face {
     font-family: "RISD Sans";
@@ -104,43 +112,47 @@
     src: url('https://www.risd.edu/themes/custom/risd_base_theme/dist/fonts/RISD_Serif_SemiComplete-Light.woff2') format("woff2");
 }
 
+
 body {
     font-family: var(--font-primary);
+    color: var(--near-black);
     font-size: 14px;
-    padding: 0px;
 }
 
 h1{
-    font-family: var(--font-secondary);
-    font-weight: 100;
-}
-
-h2 {
     font-family: var(--font-secondary) !important;
     font-weight: 100 !important;
 }
 
+h2 {
+    font-family: var(--font-primary);
+    font-weight: 100 !important;
+}
+
 h3 {
-    font-family: var(--font-secondary) !important;
+    font-family: var(--font-primary);
     font-weight: 100 !important;
     margin-top: 0;
 }
 
 h4, h5, h6 {
-    font-family: var(--font-primary) !important;
+    font-family: var(--font-primary);
     font-weight: 700;
     text-transform: uppercase;
 }
 
-a, a:visited,
-#s-lib-footer-login-link a {
-    font-family: inherit;
+/* LINKS */
+
+a, a:visited, .nav-link,
+#s-lib-footer-login-link a,
+.breadcrumb-item a,
+#s-lg-er-content .nav-tabs li a {
     color: var(--blue);
     text-decoration: none;
 }
 
 a:hover, a:focus, a:visited:hover {
-    color: var(--blue);
+    color: var(--bs-link-hover-color);
     text-decoration: underline;
 }
 
@@ -149,7 +161,8 @@ a:hover, a:focus, a:visited:hover {
     color: var(--black);
 }
 
-/* un-bold various defaults */
+/* FIX BOLD that looks bad in risd sans */
+
 #s-lib-bc li, /* breadcrumbs */
 #s-lg-guide-tabs .nav-pills > li > a,
 #s-lg-guide-tabs .nav-tabs > li > a,
@@ -157,14 +170,515 @@ a:hover, a:focus, a:visited:hover {
     font-weight: 400 !important;
 }
 
+.s-lg-gtitle em {
+    font-style: normal !important;
+}
+
+
+/* admin nav bar back to normal size in editor mode */
 #s-lg-admin-command-bar {
-   font-size: 12px; /* admin nav bar back to normal size in editor mode */
+   font-size: 12px;
+}
+
+/* Top header matter */
+
+h1#s-lg-guide-name,
+h1#s-lib-public-header-title {
+    font-size: 32px !important;
+    color: var(--black);
+}
+
+.s-lib-header,
+.s-lib-public-header {
+    margin-top: 0;
+}
+
+#s-lg-guide-header-info {
+    margin: 20px 0px;
+}
+
+/* box titles in dd places */
+.s-lib-public-side-header h2,
+#s-lg-sb-cols h2.s-lib-box-header {
+    color: var(--black);
+    font-size: 18px;
+    font-family: var(--font-primary) !important;
+    text-transform: uppercase !important;
+    background-image: none;
+    border-bottom: 2px solid var(--black);
+    padding: 6px 0px;
+}
+
+/* breadcrumbs */
+.s-lib-bc {
+    font-size: 12px;
+}
+
+/*---------------- TAB & BOX OVERRIDES --------------------*/
+
+/* top-nav tabs */  
+
+#s-lg-guide-tabs .nav-tabs>li {
+    margin: 0px 6px 6px 0px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a,
+#s-lg-tabs-container .nav-tabs > li > button {
+    border: 1px solid var(--tab-borders);
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    border-bottom: 2px solid var(--blue);
+    background-color: var(--tab-color);
+    color: var(--black);
+    font-weight: 400;
+    padding: 4px 15px;
+    /*    margin-right: 0 !important; */
+}
+
+#s-lg-guide-tabs .dropdown-menu {
+    width: 250px;
+    font-size: 12px !important;
+}
+
+.nav-tabs .s-lg-subtab-ul .dropdown-item {
+    line-height: 1.2rem;
+    padding: 10px;
+    border-bottom: 1px solid var(--mid-gray);
+}
+
+/* side-nav tabs */
+#s-lg-tabs-container .nav-pills > li > a,
+#s-lg-tabs-container .nav-pills > li > button {
+    border: 1px solid var(--tab-borders);
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    border-left: 2px solid var(--blue);
+    background-color: var(--tab-color);
+    color: var(--black);
+    font-weight: 400;
+    padding: 4px 20px;
+}
+
+a.s-lg-tab-top-link {
+    padding: 4px 15px;
+}
+
+.s-lg-tabs-side .s-lg-subtab-ul {
+    margin-top: 4px;
+}
+
+.s-lg-tabs-side .s-lg-subtab-ul > li > a {
+    border-left: 2px solid var(--blue);
+}
+
+.s-lg-subtab-ul .dropdown-item > a {
+    border-left: none;
+}
+
+.d-block { /* remove blue border line in collapsed tabs */
+    border-left: none !important;
+}
+
+/* hover top-nav button */
+#s-lg-tabs-container .nav-tabs > li > a:hover,
+#s-lg-tabs-container .nav-tabs > li > button:hover,
+#s-lg-tabs-container .nav-tabs > li > .active:hover {
+        border: 1px solid transparent;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    background-color: var(--tab-hover);
+    border-bottom: 2px solid var(--blue);
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* hover side-nav button */
+#s-lg-tabs-container .nav-pills > li > a:hover,
+#s-lg-tabs-container .nav-pills > li > button:hover
+#s-lg-tabs-container .nav-pills > li > .active:hover {
+    border: 1px solid transparent;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    background-color: var(--tab-hover);
+    border-left: 2px solid var(--blue);
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* active top-nav button */
+#s-lg-tabs-container .nav-tabs > .active > a,
+#s-lg-tabs-container .nav-tabs > .active > button {
+    color: var(--white);
+    background-color: var(--tab-active);
+    border: 1px solid transparent;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    border-bottom: 2px solid var(--tab-active);
+    font-weight: 400;
+}
+
+
+/* active side-nav button */
+#s-lg-tabs-container .nav-pills > .active > a,
+#s-lg-tabs-container .nav-pills > .active > button {
+    color: var(--white);
+    background-color: var(--tab-active);
+    border: 1px solid transparent;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    border-bottom-color: transparent;
+    border-left: 2px solid var(--tab-active);
+    font-weight: 400;
+}
+
+#s-lg-tabs-container .dropdown-item.active {
+    background-color: var(--tab-active);
+}
+
+
+/* SIDE-NAV box-level TABS */
+
+.s-lg-tabs-side .s-lg-boxnav .list-group-item {
+    border-radius: 0;
+    background-color: var(--white);
+    border-color: var(--subtab-border);
+}
+
+.s-lg-tabs-side .s-lg-boxnav .list-group-item:hover,
+.s-lg-tabs-side .s-lg-boxnav .list-group-item:focus {
+    background-color: var(--tab-hover);
+    color: var(--white);
+}
+
+.s-lg-tabs-side .s-lg-boxnav .list-group-item a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/*------------------------ BOXES -------------------------*/
+
+.s-lib-box {
+    border-color: var(--box-border);
+    border-width: 1px;
+    box-shadow: none;;
+    border-radius: 0;
+    background-color: var(--box-background);
+}
+
+/* Box headers */
+.s-lib-box-std .s-lib-box-title {
+    background-color: var(--box-background);
+    background-image: none;
+    border-color: var(--box-border);
+    color: var(--black);
+    text-transform: uppercase !important;
+    border-bottom: 2px solid var(--black) !important;
+    letter-spacing: .5px;
+    font-size: 18px !important;
+    font-family: var(--font-primary) !important;
+    padding: 6px 0px;
+}
+
+/* floating and regular box padding */
+.s-lib-floating-box,
+.s-lib-box-content {
+    padding: 10px;
+}
+
+/* TABBED BOXES */
+
+.s-lib-box-content .nav-tabs > li {
+    border: 1px solid var(--dark-gray);
+    background-color: var(--gray);
+    margin: 2px 5px 0px 0px;
+    border-bottom: none;
+}
+
+.s-lib-box-content .nav-tabs > li > a{
+    border-radius: 0px;
+}
+
+.s-lib-box-content .tab-content {
+    border: 1px solid var(--dark-gray);
+}
+
+/* MISC LG Features */
+
+a.s-lg-tab-top-link.pull-left {
+    margin-right: 0px !important;
+}
+
+.popover {
+    font-family: var(--font-primary);
+    font-weight: 100;
+}
+
+.popover-title {
+    font-size: 16px;
+}
+
+.s-ui-helptip {
+    color: var(--black);
+}
+
+.panel-heading > a {
+    color: var(--black);
+}
+
+/*------------------------ FORMS & BUTTONS -------------------------*/
+
+
+/* square forms/inputs*/
+
+input, 
+.accordion,
+.accordion-item,
+.form-control,
+.form-select {
+    border-radius: 0 !important;
+}
+
+.btn, button {
+    border-radius: 0 !important;
+    text-decoration: none !important;
+    background-image: none !important;
+    font-family: var(--font-primary);
+}
+
+/* info icons */
+.btn-link {
+    color: var(--black);
+}
+
+/* custom box shadow buttons */
+
+.risd-btn {
+    border: 2px solid var(--blue);
+    box-shadow: -2px 2px var(--blue);
+}
+
+/* TRANSPARENT BUTTONS */
+
+.s-lg-index-nav-btn button {
+    border: 2px solid var(--black) !important;
+    color: var(--black) !important;
+    background: transparent;
+}
+
+/* BLUE BUTTONS */
+.btn-light,
+.btn-primary {
+    color: var(--white) !important;
+    background-color: var(--blue) !important;
+    border: 2px solid var(--blue);
+}
+
+.btn-light:hover, .btn-light:focus,
+.btn-primary:hover, .btn-primary:focus {
+    color: var(--blue) !important;
+    background-color: var(--white) !important;
+    border: 2px solid var(--blue);
+}
+
+/* BLACK BUTTONS */
+.btn-info,
+.search-widget button,
+.s-lg-index-nav-btn.active button,
+.s-lg-index-nav-btn button:hover,
+.s-lg-index-nav-btn button:focus {
+    color: var(--white) !important;
+    background-color: var(--black) !important;
+    border: 2px solid var(--black);
+}
+
+.btn-info:hover, .btn-info:focus,
+.search-widget button:hover,
+.search-widget button:focus {
+    color: var(--black) !important;
+    background-color: var(--white) !important;
+    border: 2px solid var(--black);
+}
+
+/* Email Me buttons with drop shadow */
+
+.s-lib-profile-email .label-info {
+    background-color: var(--white) !important;
+    border: 2px solid var(--blue);
+    box-shadow: -2px 2px var(--blue);
+}
+
+.s-lib-profile-email a {
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: var(--blue) !important;
+    padding: 5px 10px;
+}
+
+.s-lib-profile-email a:hover,
+.s-lib-profile-email a:focus {
+    background-color: var(--blue) !important;
+    color: var(--white) !important;
+    border: 2px solid var(--blue) !important;
+}
+
+.nav-pills .s-lg-index-nav-btn
+
+/* ACCORDIONS */
+
+.accordion-button {
+    color: var(--black) !important;
+    background-color: var(--gray);
+    border-radius: 0 !important;
+    border-color: transparent !important;
+}
+
+/* GUIDE SEARCH */
+
+#s-lg-guide-search-form input {
+    box-shadow: none;
+    border: 0;
+    border-radius: 0;
+}
+
+#s-lg-guide-search-terms {
+    border-bottom: 1px solid var(--black) !important;
+    outline: 0;
+    padding-left: 10px;
+}
+
+.input-group-sm button.btn-outline-secondary {
+    background-color: var(--blue);
+    color: var(--white);
+    text-transform: uppercase;
+    border-radius: 0 !important;
+    border-color: transparent !important;
+    margin-left: 16px !important;
+}
+
+/* CUSTOM SEARCH WIDGETS */
+
+div.search-widget {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+input.widget-input {
+    flex: 1 1 0%;
+    margin-right: 5px;
+    padding-left: 5px;
+    border: 2px solid var(--dark-gray);
+}
+
+fieldset.catalog-radio {
+    margin: 5px 0px;
+}
+
+.catalog-radio label{
+    margin-right: 1em;
+}
+
+
+/*----------------------- A-Z page tweaks -----------------------*/
+
+#s-lg-az-index button {
+    color: var(--near-black);
+}
+
+#s-lg-az-filters {
+    padding: 1rem 1rem 0 1rem;
+}
+
+#s-lg-az-index .active-alpha {
+    background-color: var(--near-black);
+    color: var(--white);
+    border: none;
+}
+
+#az-search-col-1 > nav,
+.az-public-mobile-filters {
+    background-color: var(--mid-gray);
+    border-radius: 0;
+}
+
+#s-lg-az-filter-cols div.row {
+    padding: 5px;
+    border-radius: 0;
+} 
+
+#col-search > div {
+    height: 100%;
+}
+
+.select2-container--bootstrap5 {
+    background-color: var(--white);
+}
+
+.select2-container--bootstrap5.select2-selection {
+    padding-left: 10px;
+
+}
+
+/* #s-lg-az-filters {
+    padding: 0px 10px;
+}
+
+ modify mobile filters on a-z menu, may affect more, tbd
+.form-group .selection > span {
+    background-color: var(--white);
+} 
+
+.az-item .mt-3,
+.az-item .mb-3 {
+    margin: 0 !important;
+} */
+
+.az-item button {
+    padding: 0;
+}
+
+.az-description-full {
+    margin-top: 10px;
+}
+
+a.az-title, span.az-title {
+    font-size: 1.25rem;
+    font-weight: 100;
+    font-family: var(--font-secondary);
+}
+
+.az-item .fa-external-link {
+    font-size: 12px !important;
+    padding: 5px;
+}
+
+.az-flags span.badge {
+    font-size: .7rem;
+    font-weight: 400;
+}
+
+.s-lg-az-result-badge-new {
+    background-color: var(--black);
+}
+
+.sidebar-boxes {
+    margin-left: 15px;
+}
+
+h2#s-lg-az-result-count {
+    font-family: var(--font-primary) !important;
+    font-size: 14px;
 }
 
 
 
-
-/*-----------------------------------------HEADER-----------------------------------------*/
+/*-----------------------------------------HEADER-----------------------------------------------*/
 
 .header {
     background-color: var(--white);
@@ -462,13 +976,12 @@ footer ul {
 }
 
 #footer-search button {
-    color: #ffffff !important;
-    background-color: var(--purple);
-    border: none;
+    color: var(--black) !important;
+    background-color: var(--lime) !important;
+    border: none !important;
     border-radius: 0;
     padding: 0px 10px;
 }
-
 
 @media (max-width: 767px) {
     .footer-risd .footerlinks {
@@ -489,294 +1002,18 @@ footer ul {
     }
 }
 
-/* lg footer */
+/* LIBGUIDES SYSTEM FOOTER */
+
 #s-lib-footer-public {
-    margin-top: 15px;
-    border-top: 0;
-    width: 100% !important;
+    font-size: 12px;
 }
 
 #s-lib-footer-support-link,
 #s-lg-guide-header-subjects,
 #s-lg-guide-header-tags,
-span.pad-left-med.hitst {
+span.pad-left-med.hitst,
+.pb-2 {
     display: none !important;
 }
 
-/*----------------------- A-Z page tweaks -----------------------*/
-
-#s-lg-az-index button {
-    color: var(--near-black);
-    border-radius: 0;
-}
-
-#s-lg-az-index .active-alpha {
-    background-color: var(--near-black);
-    color: var(--white);
-    border: none;
-}
-
-#az-search-col-1 > nav,
-.az-public-mobile-filters {
-    background-color: var(--mid-gray);
-    border-radius: 0;
-}
-
-#s-lg-az-filters {
-    padding: 0px 10px;
-}
-
-#s-lg-az-filter-cols div.row {
-    padding: 5px 
-}
-
-/* modify mobile filters on a-z menu, may affect more, tbd */
-.form-group .selection > span {
-    background-color: var(--white);
-}
-
-.az-item .mt-3,
-.az-item .mb-3 {
-    margin: 0 !important;
-}
-
-.az-item button {
-    padding: 0;
-}
-
-.az-description-full {
-    margin-top: 10px;
-}
-
-a.az-title {
-    font-size: 18px;
-}
-
-.sidebar-boxes {
-    margin-left: 15px;
-}
-
-h2#s-lg-az-result-count {
-    font-family: var(--font-primary) !important;
-    font-size: 14px;
-}
-
-
-
-/* Guide headers */
-
-.s-lib-header h1#s-lg-guide-name,
-h1#s-lib-public-header-title {
-    font-family: var(--font-secondary);
-    font-weight: 100;
-    font-size: 28px;
-    color: var(--guide-title);
-    padding: 0;
-}
-
-/* Boxes */
-
-h2.s-lib-box-title {
-    background-color: var(--white) !important;
-    background-image: none;
-    font-family: var(--font-primary) !important;    
-    text-transform: uppercase !important;
-    font-size: 18px !important;
-    border-bottom: 2px solid var(--black) !important;
-}
-
-.s-lib-box { 
-    box-shadow: none;
-    border: none !important;
-}
-
-/* modify look of box-level side tabs */
-.s-lg-tabs-side .s-lg-boxnav .list-group-item {
-    border-radius: 0;
-    background-color: var(--white);
-    border-color: var(--subtab-border);
-}
-
-.s-lg-tabs-side .s-lg-boxnav .list-group-item:hover,
-.s-lg-tabs-side .s-lg-boxnav .list-group-item:focus {
-    background-color: var(--tab-color);
-}
-
-.s-lg-tabs-side .s-lg-boxnav .list-group-item a {
-    color: var(--black);
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/* modify sub-Pages side nav tabs */
-.s-lg-tabs-side .s-lg-subtab-ul {
-    margin-left: 20px;
-}
-
-.s-lg-tabs-side .s-lg-subtab-ul > li {
-    margin-right: 0 !important;
-}
-
-.s-lg-tabs-side .s-lg-subtab-ul > li > a {
-    border-left: 2px solid var(--black) !important;
-}
-
-.s-lg-subtab-ul,
-.nav-stacked>li+li {
-    margin-top: 6px !important;
-}
-
-/* tabbed box */
-
-.s-lib-box-content .nav-tabs>li {
-    border: 1px solid var(--dark-gray);
-    background-color: var(--gray);
-    margin: 2px 5px 0px 0px;
-    border-bottom: none;
-}
-
-.s-lib-box-content .nav-tabs>li>a{
-    border-radius: 0px;
-}
-
-/* Make E-Reserves titles bold */
-li.s-lg-er-item>a {
-    font-family: var(--font-primary);
-    font-weight: 700;
-}
-
-/* TAB adjustments */
-
-/* tab spacing for top-nav only */
-#s-lg-guide-tabs .nav-tabs>li {
-    margin: 0px 6px 6px 0px;
-}
-
-/* tab borders */
-#s-lg-guide-tabs .nav-tabs>li>a,
-#s-lg-guide-tabs .nav-pills>li>a {
-    border: 1px solid var(--tab-borders);
-}
-#s-lg-guide-tabs .nav-pills>li>a {
-    border-left: 2px solid var(--black);
-}
-
-.s-lg-subtab-ul li {
-    font-size: 14px;
-}
-
-/* adjustments to tab dropdown menu */
-
-#s-lg-tabs-container .nav .dropdown-toggle .caret {
-    border-top-color: var(--black);
-    padding-bottom: 5px;
-}
-
-#s-lg-tabs-container .nav .dropdown-toggle .caret:hover,
-#s-lg-tabs-container .nav .dropdown-toggle .caret:focus {
-    padding-bottom: 5px;
-}
-
-.s-lg-tab-drop:hover > .caret,
-.s-lg-tab-drop:focus > .caret,
-li.active > .s-lg-tab-drop > .caret {
-    border-top-color: var(--white) !important;
-}
-
-
-
-/* Guide search box */
-
-#s-lg-guide-search-form input {
-    box-shadow: none;
-    border: 0;
-}
-
-input#s-lg-guide-search-terms {
-    border-bottom: 1px solid var(--black);
-    outline: 0;
-    padding-left: 10px;
-}
-
-/* ensure floating boxes have padding
-.s-lib-floating-box {
-    padding: 10px;
-}  */
-
-/* square forms/inputs*/
-
-input, 
-.accordion,
-.accordion-item,
-.form-control,
-.form-select {
-    border-radius: 0 !important;
-}
-
-/* ALL BUTTONS */
-
-.btn, button {
-    border-radius: 0 !important;
-    text-decoration: none !important;
-    background-image: none !important;
-}
-
-/* BOX SHADOW BUTTONS */
-
-.risd-btn {
-    box-shadow: -2px 2px var(--blue);
-}
-
-/* TRANSPARENT BUTTONS */
-
-.s-lg-index-nav-btn button {
-    border: 2px solid var(--black) !important;
-    color: var(--black) !important;
-    background: transparent;
-}
-
-/* BLUE BUTTONS */
-.btn-light {
-    color: var(--white) !important;
-    background-color: var(--blue) !important;
-    border: 2px solid var(--blue);
-}
-
-/* BLACK BUTTONS */
-.btn-info,
-.s-lg-index-nav-btn.active button,
-.s-lg-index-nav-btn button:hover,
-.s-lg-index-nav-btn button:focus {
-    color: var(--white) !important;
-    background-color: var(--black) !important;
-    border: 2px solid var(--black);
-}
-
-
-
-
-/* search widgets (impacts custom search boxes across guides)*/
-div.search-widget {
-    width: 100%;
-    display: flex;
-}
-.widget-input {
-    flex: 1 1 0%;
-    margin-right: 5px;
-    font-size: 14px;
-    padding-left: 5px;
-}
-
-fieldset.catalog-radio {
-    margin: 5px 0px;
-}
-
-.catalog-radio label{
-    margin-right: 1em;
-    font-weight: normal;
-    font-size: 14px;
-}
-
-.catalog-radio input {
-    margin: 0px 4px 0px 0px;
-}
+/*-------------------------- END FOOTER ------------------------------*/
