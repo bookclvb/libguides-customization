@@ -120,7 +120,7 @@ body {
 }
 
 h1{
-    font-family: var(--font-secondary) !important;
+    font-family: var(--font-secondary);
     font-weight: 100 !important;
 }
 
@@ -180,11 +180,12 @@ a:hover, a:focus, a:visited:hover {
    font-size: 12px;
 }
 
-/* Top header matter */
+/* Top headers  */
 
 h1#s-lg-guide-name,
 h1#s-lib-public-header-title {
     font-size: 32px !important;
+    font-family: var(--font-secondary) !important;
     color: var(--black);
 }
 
@@ -210,11 +211,11 @@ h1#s-lib-public-header-title {
 }
 
 /* breadcrumbs */
-.s-lib-bc {
-    font-size: 12px;
+#s-lib-bc {
+    font-size: 12px !important;
 }
 
-/*---------------- TAB & BOX OVERRIDES --------------------*/
+/*---------------- TAB & BOX --------------------*/
 
 /* top-nav tabs */  
 
@@ -222,8 +223,9 @@ h1#s-lib-public-header-title {
     margin: 0px 6px 6px 0px;
 }
 
-#s-lg-tabs-container .nav-tabs > li > a,
-#s-lg-tabs-container .nav-tabs > li > button {
+/* #s-lg-tabs-container */
+#s-lg-guide-tabs .nav-tabs > li > a,
+#s-lg-guide-tabs .nav-tabs > li > button {
     border: 1px solid var(--tab-borders);
          -webkit-border-radius: 0;
          -moz-border-radius: 0;
@@ -241,15 +243,15 @@ h1#s-lib-public-header-title {
     font-size: 12px !important;
 }
 
-.nav-tabs .s-lg-subtab-ul .dropdown-item {
+#s-lg-guide-tabs .nav-tabs .s-lg-subtab-ul .dropdown-item {
     line-height: 1.2rem;
     padding: 10px;
     border-bottom: 1px solid var(--mid-gray);
 }
 
 /* side-nav tabs */
-#s-lg-tabs-container .nav-pills > li > a,
-#s-lg-tabs-container .nav-pills > li > button {
+#s-lg-guide-tabs .nav-pills > li > a,
+#s-lg-guide-tabs .nav-pills > li > button {
     border: 1px solid var(--tab-borders);
          -webkit-border-radius: 0;
          -moz-border-radius: 0;
@@ -277,14 +279,14 @@ a.s-lg-tab-top-link {
     border-left: none;
 }
 
-.d-block { /* remove blue border line in collapsed tabs */
+.nav-tabs .d-block { /* remove blue border line in collapsed tabs */
     border-left: none !important;
 }
 
 /* hover top-nav button */
-#s-lg-tabs-container .nav-tabs > li > a:hover,
-#s-lg-tabs-container .nav-tabs > li > button:hover,
-#s-lg-tabs-container .nav-tabs > li > .active:hover {
+#s-lg-guide-tabs .nav-tabs > li > a:hover,
+#s-lg-guide-tabs .nav-tabs > li > button:hover,
+#s-lg-guide-tabs .nav-tabs > li > .active:hover {
         border: 1px solid transparent;
          -webkit-border-radius: 0;
          -moz-border-radius: 0;
@@ -296,9 +298,9 @@ a.s-lg-tab-top-link {
 }
 
 /* hover side-nav button */
-#s-lg-tabs-container .nav-pills > li > a:hover,
-#s-lg-tabs-container .nav-pills > li > button:hover
-#s-lg-tabs-container .nav-pills > li > .active:hover {
+#s-lg-guide-tabs .nav-pills > li > a:hover,
+#s-lg-guide-tabs .nav-pills > li > button:hover,
+#s-lg-guide-tabs .nav-pills > li > .active:hover {
     border: 1px solid transparent;
          -webkit-border-radius: 0;
          -moz-border-radius: 0;
@@ -310,8 +312,8 @@ a.s-lg-tab-top-link {
 }
 
 /* active top-nav button */
-#s-lg-tabs-container .nav-tabs > .active > a,
-#s-lg-tabs-container .nav-tabs > .active > button {
+#s-lg-guide-tabs .nav-tabs > .active > a,
+#s-lg-guide-tabs .nav-tabs > .active > button {
     color: var(--white);
     background-color: var(--tab-active);
     border: 1px solid transparent;
@@ -324,8 +326,8 @@ a.s-lg-tab-top-link {
 
 
 /* active side-nav button */
-#s-lg-tabs-container .nav-pills > .active > a,
-#s-lg-tabs-container .nav-pills > .active > button {
+#s-lg-guide-tabs .nav-pills > .active > a,
+#s-lg-guide-tabs .nav-pills > .active > button {
     color: var(--white);
     background-color: var(--tab-active);
     border: 1px solid transparent;
@@ -337,7 +339,7 @@ a.s-lg-tab-top-link {
     font-weight: 400;
 }
 
-#s-lg-tabs-container .dropdown-item.active {
+#s-lg-guide-tabs .dropdown-item.active {
     background-color: var(--tab-active);
 }
 
@@ -348,6 +350,8 @@ a.s-lg-tab-top-link {
     border-radius: 0;
     background-color: var(--white);
     border-color: var(--subtab-border);
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .s-lg-tabs-side .s-lg-boxnav .list-group-item:hover,
@@ -378,11 +382,10 @@ a.s-lg-tab-top-link {
     background-image: none;
     border-color: var(--box-border);
     color: var(--black);
-    text-transform: uppercase !important;
-    border-bottom: 2px solid var(--black) !important;
-    letter-spacing: .5px;
-    font-size: 18px !important;
-    font-family: var(--font-primary) !important;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--black);
+    font-size: 18px;
+    font-family: var(--font-primary);
     padding: 6px 0px;
 }
 
@@ -432,6 +435,18 @@ a.s-lg-tab-top-link.pull-left {
     color: var(--black);
 }
 
+/* modify Guide Editor menu */
+#s-lg-guide-mini-cmd-bar div.border-bottom.mb-3.fixed-top.z-1.bg-white {
+    background-color: #ffc229 !important;
+}
+
+.s-lg-admin-guide-page-nav a,
+.s-lg-admin-guide-page-nav a.dropdown-item  {
+    font-size: 12px !important;
+}
+
+
+
 /*------------------------ FORMS & BUTTONS -------------------------*/
 
 
@@ -445,11 +460,17 @@ input,
     border-radius: 0 !important;
 }
 
+.form-control {
+    font-size: .8rem;
+}
+
 .btn, button {
     border-radius: 0 !important;
     text-decoration: none !important;
-    background-image: none !important;
     font-family: var(--font-primary);
+    --bs-btn-font-size: .9rem;
+    --bs-btn-padding-x: 15px;
+    --bs-btn-padding-y: 5px;
 }
 
 /* info icons */
@@ -462,6 +483,16 @@ input,
 .risd-btn {
     border: 2px solid var(--blue);
     box-shadow: -2px 2px var(--blue);
+    background-color: var(--white);
+    color: var(--blue);
+}
+
+.risd-btn:hover,
+.risd-btn:focus {
+    border: 2px solid var(--blue);
+    box-shadow: -2px 2px var(--blue);
+    background-color: var(--blue);
+    color: var(--white);
 }
 
 /* TRANSPARENT BUTTONS */
@@ -473,21 +504,24 @@ input,
 }
 
 /* BLUE BUTTONS */
-.btn-light,
-.btn-primary {
+.btn-blue,
+.btn-primary,
+.s-lg-public-search-field .btn {
     color: var(--white) !important;
     background-color: var(--blue) !important;
-    border: 2px solid var(--blue);
+    border: 2px solid var(--blue) !important;
 }
 
-.btn-light:hover, .btn-light:focus,
-.btn-primary:hover, .btn-primary:focus {
+.btn-blue:hover, .btn-blue:focus,
+.btn-primary:hover, .btn-primary:focus,
+.s-lg-public-search-field .btn:hover {
     color: var(--blue) !important;
     background-color: var(--white) !important;
     border: 2px solid var(--blue);
 }
 
 /* BLACK BUTTONS */
+.btn-black,
 .btn-info,
 .search-widget button,
 .s-lg-index-nav-btn.active button,
@@ -498,6 +532,7 @@ input,
     border: 2px solid var(--black);
 }
 
+.btn-black:hover, .btn-black:focus,
 .btn-info:hover, .btn-info:focus,
 .search-widget button:hover,
 .search-widget button:focus {
@@ -528,15 +563,27 @@ input,
     border: 2px solid var(--blue) !important;
 }
 
-.nav-pills .s-lg-index-nav-btn
-
 /* ACCORDIONS */
+
 
 .accordion-button {
     color: var(--black) !important;
     background-color: var(--gray);
     border-radius: 0 !important;
     border-color: transparent !important;
+}
+
+#s-lg-index-list .accordion-header button, 
+#s-lg-er-content .accordion-header button {
+    color: var(--black); 
+    padding: 10px 20px; 
+    font-size: .9rem;
+}
+
+#s-lg-index-list .badge, 
+#s-lg-er-content .badge {
+    border-radius: 10px; 
+    background-color: var(--blue);
 }
 
 /* GUIDE SEARCH */
@@ -572,7 +619,7 @@ div.search-widget {
 input.widget-input {
     flex: 1 1 0%;
     margin-right: 5px;
-    padding-left: 5px;
+    padding: 5px 10px;
     border: 2px solid var(--dark-gray);
 }
 
@@ -592,7 +639,7 @@ fieldset.catalog-radio {
 }
 
 #s-lg-az-filters {
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem;
 }
 
 #s-lg-az-index .active-alpha {
@@ -624,20 +671,6 @@ fieldset.catalog-radio {
     padding-left: 10px;
 
 }
-
-/* #s-lg-az-filters {
-    padding: 0px 10px;
-}
-
- modify mobile filters on a-z menu, may affect more, tbd
-.form-group .selection > span {
-    background-color: var(--white);
-} 
-
-.az-item .mt-3,
-.az-item .mb-3 {
-    margin: 0 !important;
-} */
 
 .az-item button {
     padding: 0;
@@ -676,6 +709,14 @@ h2#s-lg-az-result-count {
     font-size: 14px;
 }
 
+/* hide 'subject homepage' alerts on all guides page */
+#s-lg-index-list .accordion-body .alert {
+    display: none !important;
+}
+
+#s-lg-index-list-guides .s-lib-box-content {
+    padding: 0px;
+}
 
 
 /*-----------------------------------------HEADER-----------------------------------------------*/
